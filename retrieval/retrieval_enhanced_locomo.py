@@ -659,6 +659,8 @@ class EnhancedRetriever:
         t_parse = 0.0
         t_filter = 0.0
         t_rank = 0.0
+        fallback_to_full_pool = False
+        initial_pool_size = len(pool)
 
         # Parse query if enhanced mode is enabled
         directive = None
@@ -685,6 +687,12 @@ class EnhancedRetriever:
                 "🔍 Metadata filtering: %d/%d blocks after filtering",
                 len(filtered_pool), len(pool)
             )
+            if not filtered_pool:
+                mx.logger.warning(
+                    "Temporal filtering returned 0 blocks; falling back to full pool for semantic ranking."
+                )
+                filtered_pool = pool
+                fallback_to_full_pool = True
         else:
             filtered_pool = pool
 
@@ -767,12 +775,32 @@ class EnhancedRetriever:
                 "time_constraint_type": tc.type,
                 "query_time_start": tc.start,
                 "query_time_end": tc.end,
+                "retrieval_latency_parse": t_parse,
+                "retrieval_latency_filter": t_filter,
+                "retrieval_latency_rank": t_rank,
+                "retrieval_latency_total_with_parse": t_parse + t_filter + t_rank,
+                "retrieval_latency_core_no_parse": t_filter + t_rank,
+                "fallback_to_full_pool": fallback_to_full_pool,
+                "filtered_pool_size": len(filtered_pool),
+                "initial_pool_size": initial_pool_size,
+                "parse_source": directive.parse_source,
+                "query_intent": directive.intent,
             }
         else:
             query_time_meta = {
                 "time_constraint_type": "NONE",
                 "query_time_start": None,
                 "query_time_end": None,
+                "retrieval_latency_parse": t_parse,
+                "retrieval_latency_filter": t_filter,
+                "retrieval_latency_rank": t_rank,
+                "retrieval_latency_total_with_parse": t_parse + t_filter + t_rank,
+                "retrieval_latency_core_no_parse": t_filter + t_rank,
+                "fallback_to_full_pool": fallback_to_full_pool,
+                "filtered_pool_size": len(filtered_pool),
+                "initial_pool_size": initial_pool_size,
+                "parse_source": "NONE",
+                "query_intent": "NONE",
             }
 
         return rankings, sim_map, target_boxes, query_time_meta
@@ -848,7 +876,9 @@ class EnhancedRetriever:
             ])
 
         with open(mx.Config.RAW_DATA_FILE, "r", encoding="utf-8") as f:
-            raw_list = json.load(f)[: mx.Config.LIMIT_CONVERSATIONS]
+            all_data = json.load(f)
+            limit = mx.Config.LIMIT_CONVERSATIONS
+            raw_list = all_data if (limit is None or limit <= 0) else all_data[:limit]
         # 读取文件时判断是 JSON 数组还是 JSONL，每行解析一个 JSON 对象
         # with open(mx.Config.RAW_DATA_FILE, 'r', encoding='utf-8') as f:
         #     first = f.read(1)
@@ -912,6 +942,16 @@ class EnhancedRetriever:
                     "query_time_start": query_time_meta.get("query_time_start"),
                     "query_time_end": query_time_meta.get("query_time_end"),
                     "retrieved_items_minimal": retrieved_items_minimal,
+                    "retrieval_latency_parse": query_time_meta.get("retrieval_latency_parse", 0.0),
+                    "retrieval_latency_filter": query_time_meta.get("retrieval_latency_filter", 0.0),
+                    "retrieval_latency_rank": query_time_meta.get("retrieval_latency_rank", 0.0),
+                    "retrieval_latency_total_with_parse": query_time_meta.get("retrieval_latency_total_with_parse", 0.0),
+                    "retrieval_latency_core_no_parse": query_time_meta.get("retrieval_latency_core_no_parse", 0.0),
+                    "fallback_to_full_pool": query_time_meta.get("fallback_to_full_pool", False),
+                    "filtered_pool_size": query_time_meta.get("filtered_pool_size", 0),
+                    "initial_pool_size": query_time_meta.get("initial_pool_size", 0),
+                    "parse_source": query_time_meta.get("parse_source", "NONE"),
+                    "query_intent": query_time_meta.get("query_intent", "NONE"),
                 }
                 if graph_info is not None:
                     res_entry["graph"] = graph_info

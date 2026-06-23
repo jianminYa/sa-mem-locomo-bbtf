@@ -1,0 +1,2659 @@
+ℹ️ Using run_id=locomo_b_btf_sample1, output_dir=out/locomo_b_btf_sample1
+ℹ️ Log file: out/locomo_b_btf_sample1/retrieve_stage_enhanced.log
+ℹ️ Retrieval mode: both
+🔍 Running BASELINE retrieval (simple vector similarity)...
+ℹ️ Using run_id=locomo_b_btf_sample1, output_dir=out/locomo_b_btf_sample1
+ℹ️ Log file: out/locomo_b_btf_sample1/retrieve_stage_enhanced.log
+ℹ️ Retrieval mode: both
+🔍 Running BASELINE retrieval (simple vector similarity)...
+ℹ️ Retrieval will append results to: out/locomo_b_btf_sample1/retrieval_baseline.jsonl, out/locomo_b_btf_sample1/retrieval_baseline.csv
+ℹ️ Assigned user_id=0 for conversation 0
+🔍 VectorStore file missing path=out/locomo_b_btf_sample1/vector_store/user_0.json
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=68
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=69
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=70
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=71
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=72
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=73
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=74
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=75
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=76
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=77
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=78
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=79
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=80
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=81
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=82
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=83
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=84
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=85
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=86
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=87
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=88
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=89
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=90
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=91
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=92
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=93
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=94
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=95
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=96
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=97
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=98
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=99
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=100
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=101
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=102
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=103
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=104
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=105
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=106
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=107
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=108
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=109
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=110
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=111
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=112
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=113
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=114
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=115
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=116
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=117
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=118
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=119
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=120
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=121
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=122
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=123
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=124
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=125
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=126
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=127
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=128
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=129
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=130
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=131
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=132
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=133
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=134
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=135
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=136
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=137
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=138
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=139
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=140
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=141
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=142
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=143
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=144
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=145
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=146
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=147
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=148
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=149
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=150
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=151
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=152
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=153
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=154
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=155
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=156
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=157
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=158
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=159
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=160
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=161
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=162
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=163
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=164
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=165
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=166
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=167
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=168
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=169
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=170
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=171
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=172
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=173
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=174
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=175
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=176
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=177
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=178
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=179
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=180
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=181
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=182
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=183
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=184
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=185
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=186
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=187
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=188
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=189
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=190
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=191
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=192
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=193
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=194
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=195
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=196
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=197
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=198
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=199
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=200
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=201
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=202
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=203
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=204
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=205
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=206
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=207
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=208
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=209
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=210
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=211
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=212
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=213
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=214
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=215
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=216
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=217
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=218
+✅ Simple retrieval done for user 0 (conversation 0: qa_idx 0-151, 152 queries)
+✅ Retrieval results appended to out/locomo_b_btf_sample1/retrieval_baseline.jsonl
+⏱️ Baseline retrieval time: 291.31 seconds
+🔍 Running ENHANCED retrieval (with query parsing and metadata filtering)...
+✅ Loaded 133 blocks, built temporal index
+ℹ️ Enhanced Retrieval will append results to: out/locomo_b_btf_sample1/retrieval_enhanced.jsonl, out/locomo_b_btf_sample1/retrieval_enhanced.csv
+ℹ️ Assigned user_id=0 for conversation 0
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.797s, filter=0.001s, rank=0.304s, total=2.101s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.238s, filter=0.001s, rank=0.307s, total=1.545s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=PLANNING, time=NONE, source=FAST
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 PLANNING query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=0.001s, filter=0.001s, rank=0.301s, total=0.303s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.197s, filter=0.001s, rank=0.293s, total=1.490s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=FAST
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=0.001s, filter=0.001s, rank=0.290s, total=0.292s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.376s, filter=0.001s, rank=0.296s, total=1.672s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.064s, filter=0.001s, rank=0.265s, total=1.329s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=FAST
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=0.000s, filter=0.000s, rank=0.280s, total=0.281s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.442s, filter=0.001s, rank=0.269s, total=1.711s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.446s, filter=0.001s, rank=0.285s, total=1.732s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.003s (anchor=0.000s), event_type=0.000s, total=0.003s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.457s, filter=0.003s, rank=0.279s, total=1.739s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=RANGE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=True, time_constraint.type=RANGE
+🔍 Temporal(event) filter: RANGE [2023-01-01, 2023-12-31] -> 132/133 blocks
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 132 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 132 blocks
+⏱️ Filter timing: temporal=0.001s (anchor=0.000s), event_type=0.000s, total=0.001s
+🔍 Metadata filtering: 132/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 132 blocks...
+   Progress: 50/132 blocks processed
+   Progress: 100/132 blocks processed
+✅ Similarity computation complete for 132 blocks
+⏱️ Timing: parse=1.050s, filter=0.001s, rank=0.267s, total=1.318s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=FAST
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=0.001s, filter=0.001s, rank=0.266s, total=0.268s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.498s, filter=0.001s, rank=0.292s, total=1.791s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=PLANNING, time=NONE, source=FAST
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 PLANNING query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=0.001s, filter=0.001s, rank=0.295s, total=0.296s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.001s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.110s, filter=0.001s, rank=0.290s, total=1.401s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.223s, filter=0.001s, rank=0.286s, total=1.510s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=PLANNING, time=NONE, source=FAST
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 PLANNING query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=0.001s, filter=0.001s, rank=0.282s, total=0.283s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=0.980s, filter=0.001s, rank=0.285s, total=1.266s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.192s, filter=0.001s, rank=0.310s, total=1.503s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.155s, filter=0.001s, rank=0.300s, total=1.456s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.202s, filter=0.003s, rank=0.310s, total=1.514s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=PLANNING, time=NONE, source=FAST
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 PLANNING query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=0.001s, filter=0.001s, rank=0.271s, total=0.273s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.619s, filter=0.001s, rank=0.326s, total=1.946s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=0.829s, filter=0.001s, rank=0.255s, total=1.085s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.273s, filter=0.001s, rank=0.261s, total=1.535s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.108s, filter=0.001s, rank=0.238s, total=1.346s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=PLANNING, time=NONE, source=FAST
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 PLANNING query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=0.001s, filter=0.001s, rank=0.251s, total=0.253s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.393s, filter=0.001s, rank=0.271s, total=1.665s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.137s, filter=0.001s, rank=0.297s, total=1.434s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=PLANNING, time=NONE, source=FAST
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 PLANNING query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=0.001s, filter=0.001s, rank=0.295s, total=0.296s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=0.799s, filter=0.001s, rank=0.306s, total=1.106s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.218s, filter=0.001s, rank=0.269s, total=1.489s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=2.821s, filter=0.001s, rank=0.265s, total=3.086s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=2.364s, filter=0.001s, rank=0.294s, total=2.658s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.391s, filter=0.001s, rank=0.274s, total=1.665s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.366s, filter=0.001s, rank=0.284s, total=1.650s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.281s, filter=0.001s, rank=0.277s, total=1.558s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.258s, filter=0.001s, rank=0.274s, total=1.532s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.550s, filter=0.001s, rank=0.241s, total=1.792s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=RANGE, source=FAST
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=True, time_constraint.type=RANGE
+🔍 Temporal(event) filter: RANGE [2023-01-01, 2023-12-31] -> 132/133 blocks
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 132 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 132 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 132/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 132 blocks...
+   Progress: 50/132 blocks processed
+   Progress: 100/132 blocks processed
+✅ Similarity computation complete for 132 blocks
+⏱️ Timing: parse=0.002s, filter=0.001s, rank=0.220s, total=0.222s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.721s, filter=0.001s, rank=0.324s, total=2.045s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=PLANNING, time=NONE, source=FAST
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 PLANNING query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=0.001s, filter=0.001s, rank=0.356s, total=0.358s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.170s, filter=0.001s, rank=0.291s, total=1.462s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=FAST
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=0.001s, filter=0.001s, rank=0.287s, total=0.288s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.500s, filter=0.001s, rank=0.294s, total=1.794s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=PLANNING, time=NONE, source=FAST
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 PLANNING query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=0.001s, filter=0.001s, rank=0.280s, total=0.281s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=2.122s, filter=0.001s, rank=0.282s, total=2.404s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=2.652s, filter=0.001s, rank=0.300s, total=2.953s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.001s (anchor=0.000s), event_type=0.001s, total=0.001s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=0.918s, filter=0.003s, rank=0.304s, total=1.224s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=PLANNING, time=NONE, source=FAST
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 PLANNING query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=0.001s, filter=0.001s, rank=0.306s, total=0.307s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.976s, filter=0.001s, rank=0.391s, total=2.368s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.448s, filter=0.001s, rank=0.279s, total=1.727s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.497s, filter=0.001s, rank=0.281s, total=1.779s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.208s, filter=0.001s, rank=0.308s, total=1.517s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.109s, filter=0.001s, rank=0.274s, total=1.384s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.137s, filter=0.001s, rank=0.310s, total=1.449s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.855s, filter=0.001s, rank=0.322s, total=2.177s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.001s, total=0.001s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.322s, filter=0.002s, rank=0.270s, total=1.593s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=PLANNING, time=NONE, source=FAST
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 PLANNING query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=0.001s, filter=0.001s, rank=0.280s, total=0.282s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.175s, filter=0.001s, rank=0.295s, total=1.471s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.351s, filter=0.001s, rank=0.300s, total=1.651s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.874s, filter=0.001s, rank=0.311s, total=2.185s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.643s, filter=0.001s, rank=0.301s, total=1.945s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=PLANNING, time=NONE, source=FAST
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 PLANNING query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=0.001s, filter=0.001s, rank=0.303s, total=0.304s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.061s, filter=0.001s, rank=0.257s, total=1.319s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.802s, filter=0.001s, rank=0.277s, total=2.080s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=2.290s, filter=0.000s, rank=0.287s, total=2.577s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=2.296s, filter=0.001s, rank=0.310s, total=2.607s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=PLANNING, time=NONE, source=FAST
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 PLANNING query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=0.001s, filter=0.001s, rank=0.303s, total=0.305s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=2.185s, filter=0.001s, rank=0.290s, total=2.476s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=2.548s, filter=0.001s, rank=0.317s, total=2.866s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.504s, filter=0.001s, rank=0.302s, total=1.807s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.304s, filter=0.001s, rank=0.321s, total=1.626s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.370s, filter=0.001s, rank=0.318s, total=1.688s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.363s, filter=0.001s, rank=0.413s, total=1.777s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.986s, filter=0.001s, rank=0.286s, total=2.273s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=PLANNING, time=NONE, source=FAST
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 PLANNING query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=0.001s, filter=0.001s, rank=0.289s, total=0.290s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.375s, filter=0.001s, rank=0.581s, total=1.957s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.232s, filter=0.001s, rank=0.365s, total=1.598s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.264s, filter=0.001s, rank=0.334s, total=1.599s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=PLANNING, time=NONE, source=FAST
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 PLANNING query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=0.001s, filter=0.001s, rank=0.316s, total=0.318s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.574s, filter=0.001s, rank=0.333s, total=1.908s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.408s, filter=0.001s, rank=0.332s, total=1.741s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.360s, filter=0.001s, rank=0.288s, total=1.649s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=2.346s, filter=0.001s, rank=0.337s, total=2.683s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=2.395s, filter=0.001s, rank=0.308s, total=2.703s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.202s, filter=0.001s, rank=0.313s, total=1.516s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=FAST
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=0.001s, filter=0.001s, rank=0.312s, total=0.314s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.062s, filter=0.001s, rank=0.301s, total=1.363s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.320s, filter=0.001s, rank=0.312s, total=1.633s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.655s, filter=0.001s, rank=0.278s, total=1.934s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.214s, filter=0.001s, rank=0.350s, total=1.564s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=0.999s, filter=0.001s, rank=0.295s, total=1.294s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=FAST
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=0.001s, filter=0.001s, rank=0.305s, total=0.306s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=0.978s, filter=0.001s, rank=0.320s, total=1.299s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.001s, total=0.001s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.713s, filter=0.002s, rank=0.290s, total=2.005s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.475s, filter=0.001s, rank=0.336s, total=1.812s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=3.084s, filter=0.001s, rank=0.328s, total=3.412s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.836s, filter=0.001s, rank=0.269s, total=2.105s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.360s, filter=0.001s, rank=0.298s, total=1.659s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.197s, filter=0.001s, rank=0.318s, total=1.515s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.053s, filter=0.001s, rank=0.311s, total=1.364s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.324s, filter=0.001s, rank=0.314s, total=1.639s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.238s, filter=0.001s, rank=0.300s, total=1.539s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.515s, filter=0.001s, rank=0.299s, total=1.815s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.094s, filter=0.001s, rank=0.295s, total=1.390s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=FAST
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=0.001s, filter=0.001s, rank=0.289s, total=0.291s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.457s, filter=0.001s, rank=0.299s, total=1.756s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.234s, filter=0.001s, rank=0.290s, total=1.524s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.694s, filter=0.001s, rank=0.318s, total=2.013s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.480s, filter=0.001s, rank=0.292s, total=1.772s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=POINT, source=FAST
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=True, time_constraint.type=POINT
+🔍 Temporal(event) filter: POINT [2023-07-22, 2023-07-22] -> 6/133 blocks
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 6 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 6 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 6/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 6 blocks...
+✅ Similarity computation complete for 6 blocks
+⏱️ Timing: parse=0.013s, filter=0.001s, rank=0.160s, total=0.174s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.674s, filter=0.001s, rank=0.298s, total=1.973s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.131s, filter=0.001s, rank=0.292s, total=1.423s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.024s, filter=0.001s, rank=0.308s, total=1.333s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.506s, filter=0.001s, rank=0.331s, total=1.838s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.144s, filter=0.011s, rank=0.417s, total=1.572s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=RANGE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=True, time_constraint.type=RANGE
+🔍 Temporal(event) filter: RANGE [2022-01-01, 2022-12-31] -> 14/133 blocks
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 14 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 14 blocks
+⏱️ Filter timing: temporal=0.001s (anchor=0.000s), event_type=0.000s, total=0.001s
+🔍 Metadata filtering: 14/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 14 blocks...
+✅ Similarity computation complete for 14 blocks
+⏱️ Timing: parse=1.577s, filter=0.001s, rank=0.230s, total=1.808s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.003s, filter=0.002s, rank=0.369s, total=1.374s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=FAST
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=0.001s, filter=0.001s, rank=0.397s, total=0.399s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=FAST
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=0.001s, filter=0.001s, rank=0.366s, total=0.367s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.406s, filter=0.001s, rank=0.424s, total=1.831s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.687s, filter=0.001s, rank=0.363s, total=2.050s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.095s, filter=0.001s, rank=0.344s, total=1.441s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.665s, filter=0.001s, rank=0.327s, total=1.993s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.294s, filter=0.001s, rank=0.377s, total=1.671s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=0.965s, filter=0.001s, rank=0.331s, total=1.296s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.005s, filter=0.001s, rank=0.346s, total=1.351s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.133s, filter=0.001s, rank=0.315s, total=1.449s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.001s (anchor=0.000s), event_type=0.000s, total=0.001s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.420s, filter=0.002s, rank=0.319s, total=1.741s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.723s, filter=0.001s, rank=0.302s, total=2.026s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.232s, filter=0.001s, rank=0.338s, total=1.571s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.148s, filter=0.001s, rank=0.327s, total=1.476s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.338s, filter=0.001s, rank=0.332s, total=1.671s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=POINT, source=FAST
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=True, time_constraint.type=POINT
+🔍 Temporal(event) filter: POINT [2023-10-22, 2023-10-22] -> 2/133 blocks
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 2 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 2 blocks (small but precise result)
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 2/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 2 blocks...
+✅ Similarity computation complete for 2 blocks
+⏱️ Timing: parse=0.001s, filter=0.001s, rank=0.161s, total=0.163s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.522s, filter=0.001s, rank=0.364s, total=1.886s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=POINT, source=FAST
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=True, time_constraint.type=POINT
+🔍 Temporal(event) filter: POINT [2023-10-13, 2023-10-13] -> 8/133 blocks
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 8 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 8 blocks
+⏱️ Filter timing: temporal=0.001s (anchor=0.000s), event_type=0.000s, total=0.001s
+🔍 Metadata filtering: 8/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 8 blocks...
+✅ Similarity computation complete for 8 blocks
+⏱️ Timing: parse=0.003s, filter=0.001s, rank=0.194s, total=0.198s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=POINT, source=FAST
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=True, time_constraint.type=POINT
+🔍 Temporal(event) filter: POINT [2023-10-13, 2023-10-13] -> 8/133 blocks
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 8 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 8 blocks
+⏱️ Filter timing: temporal=0.001s (anchor=0.000s), event_type=0.000s, total=0.001s
+🔍 Metadata filtering: 8/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 8 blocks...
+✅ Similarity computation complete for 8 blocks
+⏱️ Timing: parse=0.002s, filter=0.001s, rank=0.181s, total=0.184s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.003s (anchor=0.000s), event_type=0.000s, total=0.004s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.209s, filter=0.004s, rank=0.304s, total=1.517s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.324s, filter=0.001s, rank=0.338s, total=1.663s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=STATIC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔮 STATIC query detected. Skipping temporal filtering (use_interval_tree=False).
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=0.872s, filter=0.001s, rank=0.331s, total=1.204s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.932s, filter=0.001s, rank=0.307s, total=2.241s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.536s, filter=0.001s, rank=0.302s, total=1.838s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=3.568s, filter=0.001s, rank=0.338s, total=3.906s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.401s, filter=0.001s, rank=0.294s, total=1.695s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.103s, filter=0.001s, rank=0.318s, total=1.422s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.662s, filter=0.001s, rank=0.366s, total=2.029s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.131s, filter=0.001s, rank=0.347s, total=1.478s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.225s, filter=0.001s, rank=0.372s, total=1.598s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=MISC, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.001s, total=0.001s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.266s, filter=0.002s, rank=0.337s, total=1.605s
+🔍 DEBUG: Initial pool size = 133 blocks
+📝 Query parsed: intent=WINDOW, time=NONE, source=LLM
+🔍 DEBUG: pool_ids size = 133 blocks
+🔍 DEBUG: use_interval_tree=False, time_constraint.type=NONE
+🔍 DEBUG: After temporal filtering, time_filtered_ids size = 133 blocks
+🔍 Topic filter: DISABLED (skipped)
+🔍 Event type filter: DISABLED (skipped)
+✅ Filtering resulted in 133 blocks
+⏱️ Filter timing: temporal=0.000s (anchor=0.000s), event_type=0.000s, total=0.000s
+🔍 Metadata filtering: 133/133 blocks after filtering
+🔍 VectorStore file loaded path=out/locomo_b_btf_sample1/vector_store/user_0.json keys=219
+🔄 Computing similarity for 133 blocks...
+   Progress: 50/133 blocks processed
+   Progress: 100/133 blocks processed
+✅ Similarity computation complete for 133 blocks
+⏱️ Timing: parse=1.250s, filter=0.001s, rank=0.329s, total=1.580s
+✅ Enhanced retrieval done for user 0 (conversation 0: qa_idx 0-151, 152 queries)
+✅ Enhanced Retrieval results appended to out/locomo_b_btf_sample1/retrieval_enhanced.jsonl
+⏱️ Enhanced retrieval time: 228.79 seconds
+✅ Retrieval complete!
+⏱️ Total retrieval time: 520.85 seconds
+ℹ️ Comparison mode: Both baseline and enhanced results saved.
+   Baseline: retrieval_baseline.jsonl, retrieval_baseline.csv
+   Enhanced: retrieval_enhanced.jsonl, retrieval_enhanced.csv

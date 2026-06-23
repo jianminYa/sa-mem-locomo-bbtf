@@ -119,9 +119,12 @@ class SimpleRetriever:
 
     def _score_and_rank(self, user_id: Any, qa: Dict[str, Any]):
         mx = _mx()
+        import time
         pool = [b for b in self.all_boxes if b.get("user_id") == user_id]
         q = qa.get("question", "") or ""
         q_id = qa.get("id", qa.get("question", ""))
+
+        t_rank_start = time.perf_counter()
 
         store = mx.EmbeddingStore(self.worker, user_id)
         qvec = store.get_vector(f"qa_{user_id}_{q_id}", "question", q, note=f"U{user_id}_QA_Content")
@@ -163,7 +166,22 @@ class SimpleRetriever:
 
         store.flush()
         target_boxes = mx.evidence_to_targets(qa.get("evidence"), pool)
-        return rankings, sim_map, target_boxes
+
+        t_rank = time.perf_counter() - t_rank_start
+        latency_meta = {
+            "retrieval_latency_parse": 0.0,
+            "retrieval_latency_filter": 0.0,
+            "retrieval_latency_rank": t_rank,
+            "retrieval_latency_total_with_parse": t_rank,
+            "retrieval_latency_core_no_parse": t_rank,
+            "fallback_to_full_pool": False,
+            "filtered_pool_size": len(pool),
+            "initial_pool_size": len(pool),
+            "parse_source": "NONE",
+            "query_intent": "NONE",
+        }
+
+        return rankings, sim_map, target_boxes, latency_meta
 
     def run(self, result_jsonl: str, result_csv: str):
         mx = _mx()
@@ -191,7 +209,9 @@ class SimpleRetriever:
             )
 
         with open(mx.Config.RAW_DATA_FILE, "r", encoding="utf-8") as f:
-            raw_list = json.load(f)[: mx.Config.LIMIT_CONVERSATIONS]
+            all_data = json.load(f)
+            limit = mx.Config.LIMIT_CONVERSATIONS
+            raw_list = all_data if (limit is None or limit <= 0) else all_data[:limit]
 
         # global_qa_idx = 0
 
@@ -208,7 +228,7 @@ class SimpleRetriever:
 
                 qa_count_in_conv += 1
 
-                rankings, _, target_boxes = self._score_and_rank(user_id, qa)
+                rankings, _, target_boxes, latency_meta = self._score_and_rank(user_id, qa)
 
                 writer.writerow(
                     [
@@ -229,6 +249,7 @@ class SimpleRetriever:
                     "rankings": rankings,
                     "target_boxes": target_boxes,
                 }
+                res_entry.update(latency_meta)
                 mx.TraceLogger.log(result_jsonl, res_entry)
 
             mx.logger.info(
