@@ -1,0 +1,10 @@
+openai>=1.0.0
+tiktoken
+scikit-learn
+numpy
+nltk
+tenacity
+regex
+tqdm
+python-dateutil
+python-dotenv
