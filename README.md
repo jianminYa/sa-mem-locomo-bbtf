@@ -181,3 +181,91 @@ Useful evaluation options:
 - `--sample-size`: evaluate only the first N samples.
 - `--eval-output`: custom detailed evaluation output path.
 - `--summary-output`: custom summary output path.
+
+## LoCoMo B/B+TF Reproduction
+
+This section documents our reproduction of the SA-Mem paper's LoCoMo B/B+TF experiments.
+
+### Configuration
+
+| Parameter | Value |
+|-----------|-------|
+| Dataset | LoCoMo10 (10 conversations, 1540 non-cat5 QA pairs) |
+| LLM | gpt-4o-mini |
+| Embedding | text-embedding-3-small |
+| Retrieval top-k | 5 |
+| Generation top-n | 5 |
+| Text mode | content |
+| Graph | disabled |
+
+### QA Results vs Paper Table 1
+
+| Method | Our F1 | Paper F1 | Our BLEU | Paper BLEU |
+|--------|--------|----------|----------|------------|
+| B | 0.5140 | ~0.52 | 0.3894 | ~0.39 |
+| B+TF | 0.5035 | ~0.51 | 0.3792 | ~0.38 |
+
+**Note**: Our results are close but not identical to the paper due to API randomness and model version differences.
+
+### Retrieval Latency (warm-cache)
+
+| Method | Parse | Filter | Search No Parse | Total With Parse | p50 | p95 |
+|--------|-------|--------|-----------------|------------------|-----|-----|
+| B | 0 | 0 | 0.100s | 0.100s | 0.101s | 0.142s |
+| B+TF | 1.116s | 0.002s | 0.103s | 1.219s | 1.381s | 2.059s |
+
+**Latency breakdown**:
+- **With online parse**: includes LLM call for query parsing (~1.1s)
+- **No-parse (warm)**: excludes parse; vector cache pre-loaded per user
+- **Paper-like search latency**: comparable to "Core No Parse" in paper
+
+### Evidence Metrics (top-5)
+
+| Method | First-RR | Complete-MRR | Hit@5 | Recall@5 |
+|--------|----------|--------------|-------|----------|
+| B (all) | 0.6592 | 0.5608 | 0.8201 | 0.7580 |
+| B+TF (all) | 0.6525 | 0.5531 | 0.8045 | 0.7416 |
+| B+TF (temporal) | 0.4944 | 0.4634 | 0.6058 | 0.5853 |
+
+**Paper reference** (Table 5, SA-Mem ~1200 tokens): C-MRR 0.5510, Hit@k 0.8162, Recall@k 0.7475
+
+**Note**: 
+- Our top-5 is not equivalent to the paper's controlled token budget.
+- Complete-MRR = M/rank_max if all gold memories in top-k, else 0.
+- First-RR = reciprocal rank of first relevant item.
+
+### Code Changes
+
+1. **Bi-temporal filtering**: Added `dispatch_temporal_filter` and `axis_mode` parameter
+2. **Warm-cache**: EmbeddingStore created once per user, not per QA
+3. **Fine-grained latency**: parse/filter/store_init/query_vector/block_vector/cosine/sort/flush
+4. **Complete-MRR**: Paper-style evidence metric
+5. **Fallback**: Temporal filtering returns 0 → fallback to full pool
+
+### Output Directories
+
+| Directory | Description |
+|-----------|-------------|
+| `out/locomo_b_btf_full/` | Original run (old retrieval latency) |
+| `out/locomo_b_btf_fix_latency_20260623/` | Fixed fallback + old latency |
+| `out/locomo_b_btf_warm_latency_20260623/` | Warm-cache + bi-temporal + Complete-MRR |
+
+### Running the Experiments
+
+```bash
+# Full run (with build)
+RUN_ID=locomo_b_btf_full bash scripts/run_locomo_b_btf.sh
+
+# Skip build (reuse existing memory blocks)
+SKIP_BUILD=1 RUN_ID=locomo_b_btf_full bash scripts/run_locomo_b_btf.sh
+
+# Custom run with axis mode
+python scripts/retrieve_locomo_b_btf.py --top-k 5 --mode both \
+  --run-id locomo_b_btf_full --output-dir out/custom_run \
+  --raw-data-file dataset/locomo10.json \
+  --final-content-file out/locomo_b_btf_full/final_boxes_content.jsonl \
+  --limit-conversations -1 --overwrite --axis-mode auto
+
+# Metrics analysis
+python scripts/analyze_repro_metrics.py out/locomo_b_btf_warm_latency_20260623
+```

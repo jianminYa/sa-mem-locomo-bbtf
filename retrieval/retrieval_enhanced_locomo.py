@@ -12,7 +12,7 @@ from typing import Any, Dict, List, Tuple, Optional
 from collections import defaultdict
 
 from sklearn.metrics.pairwise import cosine_similarity
-from query_pasing_byllm import QueryParser, SearchDirective
+from query_pasing_byllm import QueryParser, SearchDirective, dispatch_temporal_filter
 from interval_tree_index import TemporalIndex
 from anchor_resolver import AnchorResolver
 from datetime import datetime
@@ -48,6 +48,7 @@ class EnhancedRetriever:
         graph_hops: int = 1,
         graph_include_relations: bool = True,
         graph_person_relations: bool = False,
+        axis_mode: str = "auto",
     ):
         mx = _mx()
         self.worker = worker
@@ -62,11 +63,17 @@ class EnhancedRetriever:
 
         # Data structures
         self.all_blocks: List[Dict[str, Any]] = []
-        self.block_by_id: Dict[int, Dict[str, Any]] = {}
+        self.block_by_id: Dict[Any, Dict[str, Any]] = {}
         self.temporal_index: TemporalIndex = TemporalIndex()
         self.blocks_by_user: Dict[Any, List[Dict[str, Any]]] = defaultdict(list)
         self.trace_map: Dict[Any, Dict[int, List[int]]] = {}
         self.anchor_resolver: Optional[AnchorResolver] = None
+
+        # Bi-temporal ablation switch
+        axis_mode = (axis_mode or "auto").lower()
+        if axis_mode not in {"auto", "session", "event", "none"}:
+            raise ValueError(f"Invalid axis_mode={axis_mode!r}")
+        self.axis_mode = axis_mode
 
         # Graph expansion config (optional)
         self.graph_expand = bool(graph_expand)
@@ -77,6 +84,9 @@ class EnhancedRetriever:
         self.graph_person_relations = bool(graph_person_relations)
         self.graph_extract_source = str(mx.Config.GRAPH_EXTRACT_SOURCE or "event").strip().lower()
         self.graph: Optional[Any] = None
+
+        # Per-query latency tracking
+        self.timing_records: List[Dict[str, Any]] = []
 
     def load(self):
         """Load memory blocks and build indices."""
@@ -96,7 +106,8 @@ class EnhancedRetriever:
 
             bid = mx._get_block_id(block)
             if bid is not None:
-                self.block_by_id[int(bid)] = block
+                # Key by (user_id, block_id) to avoid cross-user collisions
+                self.block_by_id[(user_id, int(bid))] = block
 
         # Build temporal index
         self.temporal_index.build_from_blocks(self.all_blocks)
@@ -507,11 +518,27 @@ class EnhancedRetriever:
 
         if directive.use_interval_tree and directive.time_constraint.type != "NONE":
             tc = directive.time_constraint
+            axis = (getattr(directive, "time_axis", "BOTH_UNION") or "BOTH_UNION").upper()
 
-            if tc.type == "ANCHOR":
-                mx.logger.info("🔍 ANCHOR query detected: '%s' %s", tc.anchor_event, tc.anchor_relation)
+            # ====== Bi-temporal ablation override ======
+            if self.axis_mode == "none":
+                mx.logger.info(
+                    "🧪 [axis_mode=none] Skipping temporal filtering for tc.type=%s (axis=%s).",
+                    tc.type, axis,
+                )
+                time_filtered_ids = pool_ids
+            elif tc.type == "ANCHOR":
+                if self.axis_mode == "session":
+                    mx.logger.info(
+                        "🧪 [axis_mode=session] ANCHOR query → degrade to full pool."
+                    )
+                    time_filtered_ids = pool_ids
+                elif not self.anchor_resolver:
+                    mx.logger.info("🔍 ANCHOR query detected but no anchor resolver → using full pool")
+                    time_filtered_ids = pool_ids
+                else:
+                    mx.logger.info("🔍 ANCHOR query detected: '%s' %s", tc.anchor_event, tc.anchor_relation)
 
-                if self.anchor_resolver:
                     t_anchor_start = time.perf_counter()
                     anchor_start, anchor_end = self.anchor_resolver.resolve_anchor(
                         tc.anchor_event or tc.raw_text or "",
@@ -522,7 +549,6 @@ class EnhancedRetriever:
                     t_anchor = time.perf_counter() - t_anchor_start
 
                     if anchor_start and anchor_end:
-                        # Try event-time first.
                         ids_evt = _temporal_query_ids(
                             anchor_start.isoformat(),
                             anchor_end.isoformat(),
@@ -536,52 +562,29 @@ class EnhancedRetriever:
                             len(ids_evt),
                             len(pool_ids),
                         )
-
-                        # If event-time has no results, fallback to session-time.
-                        if len(ids_evt) == 0:
-                            ids_sess = _temporal_query_ids(
-                                anchor_start.isoformat(),
-                                anchor_end.isoformat(),
-                                "RANGE",
-                                False,
-                            )
-                            mx.logger.info(
-                                "🔍 Anchor temporal(event) empty, trying session-time -> %d/%d blocks",
-                                len(ids_sess),
-                                len(pool_ids),
-                            )
-                            time_filtered_ids = ids_sess
-                        else:
-                            time_filtered_ids = ids_evt
+                        time_filtered_ids = ids_evt
                     else:
                         mx.logger.warning("⚠️ Anchor resolution failed, using full pool")
                         time_filtered_ids = pool_ids
-                else:
-                    time_filtered_ids = pool_ids
 
             else:
-                # Non-anchor temporal: try event-time first.
-                ids_evt = _temporal_query_ids(tc.start, tc.end, tc.type, True)
-                mx.logger.info(
-                    "🔍 Temporal(event) filter: %s [%s, %s] -> %d/%d blocks",
-                    tc.type,
-                    tc.start,
-                    tc.end,
-                    len(ids_evt),
-                    len(pool_ids),
-                )
+                # Non-anchor temporal: axis-driven dispatcher
+                if self.axis_mode == "session":
+                    axis = "SESSION"
+                elif self.axis_mode == "event":
+                    axis = "EVENT"
+                # axis_mode == "auto" keeps the QueryParser-inferred axis
 
-                # If event-time has no results, fallback to session-time.
-                if len(ids_evt) == 0:
-                    ids_sess = _temporal_query_ids(tc.start, tc.end, tc.type, False)
-                    mx.logger.info(
-                        "🔍 Temporal(event) empty, trying session-time -> %d/%d blocks",
-                        len(ids_sess),
-                        len(pool_ids),
-                    )
-                    time_filtered_ids = ids_sess
-                else:
-                    time_filtered_ids = ids_evt
+                time_filtered_ids, mode_used = dispatch_temporal_filter(
+                    axis,
+                    query_event=lambda: _temporal_query_ids(tc.start, tc.end, tc.type, True),
+                    query_session=lambda: _temporal_query_ids(tc.start, tc.end, tc.type, False),
+                )
+                mx.logger.info(
+                    "🔍 Temporal filter (axis=%s, mode=%s, axis_mode=%s): %s [%s, %s] -> %d/%d blocks",
+                    axis, mode_used, self.axis_mode, tc.type, tc.start, tc.end,
+                    len(time_filtered_ids), len(pool_ids),
+                )
 
         # DEBUG: Log time filtering result
         mx.logger.info("🔍 DEBUG: After temporal filtering, time_filtered_ids size = %d blocks", len(time_filtered_ids))
@@ -626,7 +629,8 @@ class EnhancedRetriever:
         self,
         user_id: Any,
         qa: Dict[str, Any],
-        use_enhanced: bool = True
+        use_enhanced: bool = True,
+        store: Any = None,
     ) -> Tuple[Dict[str, List[int]], Dict[int, float], List[int], Dict[str, Any]]:
         """
         Score and rank blocks for a query with optional metadata filtering.
@@ -635,6 +639,7 @@ class EnhancedRetriever:
             user_id: User identifier
             qa: Question-answer pair
             use_enhanced: If True, use query parsing and metadata filtering
+            store: Optional pre-initialized EmbeddingStore (for warm-cache)
 
         Returns:
             Tuple of (rankings, similarity_map, target_boxes, query_time_meta)
@@ -654,11 +659,16 @@ class EnhancedRetriever:
         question = qa.get("question", "") or ""
         q_id = qa.get("id", qa.get("question", ""))
 
-        # Timing variables
+        # Fine-grained timing variables
         import time
         t_parse = 0.0
         t_filter = 0.0
-        t_rank = 0.0
+        t_store_init = 0.0
+        t_query_vec = 0.0
+        t_block_vec_fetch = 0.0
+        t_cosine = 0.0
+        t_sort = 0.0
+        t_flush = 0.0
         fallback_to_full_pool = False
         initial_pool_size = len(pool)
 
@@ -698,16 +708,23 @@ class EnhancedRetriever:
 
         # Vector similarity ranking on filtered pool
         t_rank_start = time.perf_counter()
-        store = mx.EmbeddingStore(self.worker, user_id)
+
+        # Use provided store or create new one
+        if store is None:
+            t_store_init_start = time.perf_counter()
+            store = mx.EmbeddingStore(self.worker, user_id)
+            t_store_init = time.perf_counter() - t_store_init_start
 
         # Use rewritten query if available, otherwise use original
         query_text = directive.rewritten_query if directive else question
+        t_query_vec_start = time.perf_counter()
         qvec = store.get_vector(
             f"qa_{user_id}_{q_id}",
             "question",
             query_text,
             note=f"U{user_id}_QA_Enhanced"
         )
+        t_query_vec = time.perf_counter() - t_query_vec_start
 
         mx.logger.info("🔄 Computing similarity for %d blocks...", len(filtered_pool))
         sim_map: Dict[int, float] = {}
@@ -730,33 +747,42 @@ class EnhancedRetriever:
             # Include event descriptions
             events = b.get("events", [])
             event_texts = [e.get("description", "") for e in events if e.get("description")]
-            event_str = " | ".join(event_texts[:20])  # Limit to first 20 events
+            event_str = " | ".join(event_texts[:20])
 
             # Combine all: content_text + topic_kw + events (like Membox)
             text = f"{content_text} {topic_kw} {event_str}".strip()
 
+            t_bv_start = time.perf_counter()
             v = store.get_vector(
                 key,
                 "content_event_topic_kw",
                 text,
                 note=f"U{user_id}_B{bid}_enhanced",
             )
+            t_block_vec_fetch += time.perf_counter() - t_bv_start
 
+            t_cosine_start = time.perf_counter()
             try:
                 s = cosine_similarity([qvec], [v])[0][0] if v else -1.0
             except Exception:
                 s = -1.0
+            t_cosine += time.perf_counter() - t_cosine_start
 
             sim_map[bid] = float(s)
 
         mx.logger.info("✅ Similarity computation complete for %d blocks", len(filtered_pool))
 
         # Rank by similarity
+        t_sort_start = time.perf_counter()
         ranked = [bid for bid, _ in sorted(sim_map.items(), key=lambda x: x[1], reverse=True)]
+        t_sort = time.perf_counter() - t_sort_start
 
         rankings = {"content_event_topic_kw": ranked}
 
+        t_flush_start = time.perf_counter()
         store.flush()
+        t_flush = time.perf_counter() - t_flush_start
+
         t_rank = time.perf_counter() - t_rank_start
 
         # Log timing breakdown
@@ -769,44 +795,33 @@ class EnhancedRetriever:
         # Get target boxes for evaluation
         target_boxes = mx.evidence_to_targets(qa.get("evidence"), pool)
 
-        if directive:
-            tc = directive.time_constraint
-            query_time_meta = {
-                "time_constraint_type": tc.type,
-                "query_time_start": tc.start,
-                "query_time_end": tc.end,
-                "retrieval_latency_parse": t_parse,
-                "retrieval_latency_filter": t_filter,
-                "retrieval_latency_rank": t_rank,
-                "retrieval_latency_total_with_parse": t_parse + t_filter + t_rank,
-                "retrieval_latency_core_no_parse": t_filter + t_rank,
-                "fallback_to_full_pool": fallback_to_full_pool,
-                "filtered_pool_size": len(filtered_pool),
-                "initial_pool_size": initial_pool_size,
-                "parse_source": directive.parse_source,
-                "query_intent": directive.intent,
-            }
-        else:
-            query_time_meta = {
-                "time_constraint_type": "NONE",
-                "query_time_start": None,
-                "query_time_end": None,
-                "retrieval_latency_parse": t_parse,
-                "retrieval_latency_filter": t_filter,
-                "retrieval_latency_rank": t_rank,
-                "retrieval_latency_total_with_parse": t_parse + t_filter + t_rank,
-                "retrieval_latency_core_no_parse": t_filter + t_rank,
-                "fallback_to_full_pool": fallback_to_full_pool,
-                "filtered_pool_size": len(filtered_pool),
-                "initial_pool_size": initial_pool_size,
-                "parse_source": "NONE",
-                "query_intent": "NONE",
-            }
+        query_time_meta = {
+            "time_constraint_type": directive.time_constraint.type if directive else "NONE",
+            "query_time_start": directive.time_constraint.start if directive else None,
+            "query_time_end": directive.time_constraint.end if directive else None,
+            "retrieval_latency_parse": t_parse,
+            "retrieval_latency_filter": t_filter,
+            "retrieval_latency_store_init": t_store_init,
+            "retrieval_latency_query_vector": t_query_vec,
+            "retrieval_latency_block_vector_fetch": t_block_vec_fetch,
+            "retrieval_latency_cosine": t_cosine,
+            "retrieval_latency_sort": t_sort,
+            "retrieval_latency_flush": t_flush,
+            "retrieval_latency_rank_total": t_rank,
+            "retrieval_latency_search_no_parse": t_filter + t_rank,
+            "retrieval_latency_total_with_parse": t_parse + t_filter + t_rank,
+            "fallback_to_full_pool": fallback_to_full_pool,
+            "filtered_pool_size": len(filtered_pool),
+            "initial_pool_size": initial_pool_size,
+            "parse_source": directive.parse_source if directive else "NONE",
+            "query_intent": directive.intent if directive else "NONE",
+            "time_axis": directive.time_axis if directive else "NONE",
+        }
 
         return rankings, sim_map, target_boxes, query_time_meta
 
-    def _extract_block_time_window(self, block_id: int) -> Tuple[Optional[str], Optional[str]]:
-        block = self.block_by_id.get(int(block_id))
+    def _extract_block_time_window(self, user_id: str, block_id: int) -> Tuple[Optional[str], Optional[str]]:
+        block = self.block_by_id.get((user_id, int(block_id)))
         if not block:
             return None, None
 
@@ -819,11 +834,12 @@ class EnhancedRetriever:
 
     def _build_retrieved_item_minimal_rows(
         self,
+        user_id: str,
         ranked_ids: List[int],
     ) -> List[Dict[str, Any]]:
         rows: List[Dict[str, Any]] = []
         for rank, bid in enumerate(ranked_ids, start=1):
-            block_start, block_end = self._extract_block_time_window(int(bid))
+            block_start, block_end = self._extract_block_time_window(user_id, int(bid))
             rows.append(
                 {
                     "block_id": int(bid),
@@ -894,6 +910,9 @@ class EnhancedRetriever:
             user_id = str(conv_idx)  # Convert to string to match reindexed file format
             mx.logger.info(f"ℹ️ Assigned user_id={user_id} for conversation {conv_idx}")
 
+            # Create EmbeddingStore once per user for warm-cache
+            store = mx.EmbeddingStore(self.worker, user_id)
+
             qa_count_in_conv = 0
 
             for qa_idx, qa in enumerate(data.get("qa", [])):
@@ -903,11 +922,11 @@ class EnhancedRetriever:
                 qa_count_in_conv += 1
 
                 rankings, _, target_boxes, query_time_meta = self._score_and_rank(
-                    user_id, qa, use_enhanced=use_enhanced
+                    user_id, qa, use_enhanced=use_enhanced, store=store
                 )
 
                 ranked_ids = rankings.get("content_event_topic_kw", [])
-                retrieved_items_minimal = self._build_retrieved_item_minimal_rows(ranked_ids)
+                retrieved_items_minimal = self._build_retrieved_item_minimal_rows(user_id, ranked_ids)
 
                 graph_info = None
                 if self.graph_expand and rankings.get("content_event_topic_kw"):
@@ -944,18 +963,28 @@ class EnhancedRetriever:
                     "retrieved_items_minimal": retrieved_items_minimal,
                     "retrieval_latency_parse": query_time_meta.get("retrieval_latency_parse", 0.0),
                     "retrieval_latency_filter": query_time_meta.get("retrieval_latency_filter", 0.0),
-                    "retrieval_latency_rank": query_time_meta.get("retrieval_latency_rank", 0.0),
+                    "retrieval_latency_store_init": query_time_meta.get("retrieval_latency_store_init", 0.0),
+                    "retrieval_latency_query_vector": query_time_meta.get("retrieval_latency_query_vector", 0.0),
+                    "retrieval_latency_block_vector_fetch": query_time_meta.get("retrieval_latency_block_vector_fetch", 0.0),
+                    "retrieval_latency_cosine": query_time_meta.get("retrieval_latency_cosine", 0.0),
+                    "retrieval_latency_sort": query_time_meta.get("retrieval_latency_sort", 0.0),
+                    "retrieval_latency_flush": query_time_meta.get("retrieval_latency_flush", 0.0),
+                    "retrieval_latency_rank_total": query_time_meta.get("retrieval_latency_rank_total", 0.0),
+                    "retrieval_latency_search_no_parse": query_time_meta.get("retrieval_latency_search_no_parse", 0.0),
                     "retrieval_latency_total_with_parse": query_time_meta.get("retrieval_latency_total_with_parse", 0.0),
-                    "retrieval_latency_core_no_parse": query_time_meta.get("retrieval_latency_core_no_parse", 0.0),
                     "fallback_to_full_pool": query_time_meta.get("fallback_to_full_pool", False),
                     "filtered_pool_size": query_time_meta.get("filtered_pool_size", 0),
                     "initial_pool_size": query_time_meta.get("initial_pool_size", 0),
                     "parse_source": query_time_meta.get("parse_source", "NONE"),
                     "query_intent": query_time_meta.get("query_intent", "NONE"),
+                    "time_axis": query_time_meta.get("time_axis", "NONE"),
                 }
                 if graph_info is not None:
                     res_entry["graph"] = graph_info
                 mx.TraceLogger.log(result_jsonl, res_entry)
+
+            # Flush store once per user (not per QA)
+            store.flush()
 
             mx.logger.info(
                 "✅ %s retrieval done for user %s (conversation %d: qa_idx %d-%d, %d queries)",

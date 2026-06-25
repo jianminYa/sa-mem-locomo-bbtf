@@ -54,6 +54,94 @@ class SearchDirective:
     use_interval_tree: bool
     use_vector_store: bool
     parse_source: str = "LLM"  # "FAST" or "LLM" or "FALLBACK"
+    time_axis: str = "BOTH_UNION"  # "EVENT", "SESSION", "BOTH_UNION", "NONE"
+
+
+# ================= 2.5 时间轴语义检测 =================
+# SESSION = "when did the user TALK to the assistant about X" (chat-history axis)
+# EVENT   = "when did X happen in the real world"            (life-event axis)
+
+_SESSION_CUE = re.compile(
+    r"\b(tell|told|telling|mention(?:ed|ing)?|said|say|saying|bring\s+up|brought\s+up|"
+    r"discuss(?:ed|ing)?|talk(?:ed|ing)?|chat(?:ted|ting)?|"
+    r"share(?:d)?\s+with\s+you|let\s+(?:you|me)\s+know|ask(?:ed)?\s+(?:you|me))\b"
+    r"|\b(?:in|during|from)\s+(?:our|the|that|last|previous|earlier|prior|recent)\s+"
+    r"(?:conversation|chat|session|dialogue|talk|exchange)s?\b"
+    r"|\bwe\s+(?:spoke|talked|discussed|chatted)\b"
+    r"|\blast\s+time\s+(?:we|you|i)\b",
+    re.I,
+)
+
+_EVENT_CUE = re.compile(
+    r"\b(happen(?:ed)?|occur(?:red)?|took\s+place|went|visit(?:ed)?|meet|met|"
+    r"start(?:ed)?|finish(?:ed)?|end(?:ed)?|begin|began|"
+    r"graduat(?:ed|ing|e)|mov(?:ed|ing|e)|"
+    r"marr(?:ied|y|ying)|divorc(?:ed|ing|e)|"
+    r"work(?:ed)?|liv(?:ed|ing|e)|travel(?:ed|ing|led|ling)?|"
+    r"buy|bought|sell|sold|join(?:ed)?|leave|left|retire(?:d)?|"
+    r"born|die(?:d)?)\b",
+    re.I,
+)
+
+
+def _infer_time_axis(query: str, intent: str, time_kind: str) -> str:
+    """Decide which temporal axis a query refers to."""
+    if time_kind in (None, "", "NONE"):
+        return "NONE"
+    has_session = bool(_SESSION_CUE.search(query or ""))
+    has_event = bool(_EVENT_CUE.search(query or ""))
+    if has_session and not has_event:
+        return "SESSION"
+    if has_event and not has_session:
+        return "EVENT"
+    return "BOTH_UNION"
+
+
+def _normalize_time_axis(value: Optional[str], fallback: str) -> str:
+    if not value:
+        return fallback
+    v = str(value).strip().upper()
+    if v in {"EVENT", "SESSION", "BOTH_UNION", "BOTH_INTERSECT", "NONE"}:
+        return v
+    if v in {"BOTH", "UNION", "ANY"}:
+        return "BOTH_UNION"
+    if v in {"INTERSECT", "INTERSECTION", "BOTH_AND"}:
+        return "BOTH_INTERSECT"
+    if v in {"CHAT", "CONVERSATION", "DIALOGUE"}:
+        return "SESSION"
+    if v in {"REAL", "LIFE", "WORLD"}:
+        return "EVENT"
+    return fallback
+
+
+def dispatch_temporal_filter(
+    axis: Optional[str],
+    query_event,
+    query_session,
+) -> Tuple[set, str]:
+    """Apply the time-axis dispatcher on top of two callbacks.
+
+    Returns:
+        (filtered_ids, mode_used)
+    """
+    a = (axis or "BOTH_UNION").upper()
+    if a == "NONE":
+        return set(), "NONE"
+    if a == "EVENT":
+        return query_event(), "EVENT"
+    if a == "SESSION":
+        return query_session(), "SESSION"
+    if a == "BOTH_INTERSECT":
+        ev = query_event()
+        ss = query_session()
+        inter = ev & ss
+        if inter:
+            return inter, "BOTH_INTERSECT"
+        return ev | ss, "BOTH_INTERSECT_DEGRADED_UNION"
+    # Default / BOTH_UNION
+    ev = query_event()
+    ss = query_session()
+    return ev | ss, "BOTH_UNION"
 
 
 # ================= 2. Prompt =================
@@ -641,6 +729,11 @@ class QueryParser:
             elif rewritten.strip() == original_query.strip():
                 rewritten = self._remove_time_clause(rewritten, time_text)
 
+        # Infer time axis for bi-temporal filtering
+        time_axis = _infer_time_axis(original_query, intent, time_type_final)
+        if not use_tree:
+            time_axis = "NONE"
+
         return SearchDirective(
             original_query=original_query,
             rewritten_query=rewritten,
@@ -657,7 +750,8 @@ class QueryParser:
             ),
             use_interval_tree=use_tree,
             use_vector_store=use_vector,
-            parse_source=source
+            parse_source=source,
+            time_axis=time_axis,
         )
 
     def _fallback_directive(self, query: str) -> SearchDirective:
@@ -669,7 +763,8 @@ class QueryParser:
             TimeConstraint(type="NONE"),
             False,
             True,
-            "FALLBACK"
+            "FALLBACK",
+            "NONE",
         )
 
 

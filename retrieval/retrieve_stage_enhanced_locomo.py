@@ -126,6 +126,12 @@ def main():
         action="store_true",
         help="Disable entity relation triples when graph expansion is enabled."
     )
+    parser.add_argument(
+        "--axis-mode",
+        choices=["auto", "session", "event", "none"],
+        default="auto",
+        help="Bi-temporal filtering axis mode: auto (inferred), session, event, none (skip temporal)."
+    )
     args = parser.parse_args()
     start_ts = time.perf_counter()
     # Apply configuration
@@ -201,6 +207,7 @@ def main():
             graph_hops=args.graph_hops,
             graph_include_relations=not args.graph_no_relations,
             graph_person_relations=args.graph_person_relations,
+            axis_mode=args.axis_mode,
         )
         retr_enhanced.run(enhanced_jsonl, enhanced_csv, use_enhanced=True)
         mx.logger.info("⏱️ Enhanced retrieval time: %.2f seconds", time.perf_counter() - t1)

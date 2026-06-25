@@ -36,9 +36,15 @@ def analyze_retrieval_latency(jsonl_path):
     latency_fields = [
         'retrieval_latency_parse',
         'retrieval_latency_filter',
-        'retrieval_latency_rank',
+        'retrieval_latency_store_init',
+        'retrieval_latency_query_vector',
+        'retrieval_latency_block_vector_fetch',
+        'retrieval_latency_cosine',
+        'retrieval_latency_sort',
+        'retrieval_latency_flush',
+        'retrieval_latency_rank_total',
+        'retrieval_latency_search_no_parse',
         'retrieval_latency_total_with_parse',
-        'retrieval_latency_core_no_parse',
     ]
     
     stats = {}
@@ -60,6 +66,10 @@ def analyze_retrieval_latency(jsonl_path):
     # Time constraint type distribution
     time_types = Counter(r.get('time_constraint_type', 'NONE') for r in rows)
     stats['time_constraint_distribution'] = dict(time_types)
+    
+    # Time axis distribution
+    time_axes = Counter(r.get('time_axis', 'NONE') for r in rows)
+    stats['time_axis_distribution'] = dict(time_axes)
     
     # Fallback count
     fallback_count = sum(1 for r in rows if r.get('fallback_to_full_pool', False))
@@ -119,59 +129,100 @@ def analyze_generation_metrics(jsonl_path):
     return stats
 
 
-def compute_evidence_metrics(retrieval_path, top_k=5):
-    """Compute C-MRR, Hit@k, Recall@k from retrieval results."""
+def compute_evidence_metrics(retrieval_path, top_k=5, filter_time_constraint=None):
+    """Compute evidence metrics from retrieval results.
+
+    Args:
+        retrieval_path: Path to retrieval JSONL file
+        top_k: Top-k cutoff for ranking
+        filter_time_constraint: If set, only include queries with this time_constraint_type
+                                (e.g., "POINT", "RANGE" for temporal-constrained subset)
+
+    Returns:
+        dict with metrics
+    """
     rows = []
     with open(retrieval_path) as f:
         for line in f:
             if line.strip():
                 rows.append(json.loads(line))
-    
-    cmrr_values = []
+
+    # Filter by time constraint if specified
+    if filter_time_constraint is not None:
+        rows = [r for r in rows if r.get('time_constraint_type') == filter_time_constraint]
+
+    first_rr_values = []  # First-Relevant MRR
+    complete_mrr_values = []  # Complete-MRR (paper definition)
     hit_at_k = 0
     recall_at_k_values = []
-    
+
     for row in rows:
         targets = row.get('target_boxes', [])
         if not targets:
             continue
-        
+
         target_ids = set()
         for t in targets:
             if isinstance(t, dict):
-                target_ids.add(t.get('block_id'))
+                tid = t.get('block_id')
+                if tid is not None:
+                    target_ids.add(int(tid))
             elif isinstance(t, (int, str)):
-                target_ids.add(int(t))
-        
+                try:
+                    target_ids.add(int(t))
+                except (ValueError, TypeError):
+                    pass
+
         if not target_ids:
             continue
-        
+
         rankings = row.get('rankings', {})
         ranked_ids = rankings.get('content_event_topic_kw', [])[:top_k]
-        
-        # C-MRR (reciprocal rank of first relevant item)
-        rr = 0.0
-        for i, bid in enumerate(ranked_ids):
-            if int(bid) in target_ids:
-                rr = 1.0 / (i + 1)
+        ranked_ids_int = [int(bid) for bid in ranked_ids]
+
+        # First-Relevant MRR (reciprocal rank of first relevant item)
+        first_rr = 0.0
+        for i, bid in enumerate(ranked_ids_int):
+            if bid in target_ids:
+                first_rr = 1.0 / (i + 1)
                 break
-        cmrr_values.append(rr)
-        
+        first_rr_values.append(first_rr)
+
+        # Complete-MRR (paper definition):
+        # If ALL gold memories are in top-k, score = M / rank_max
+        # where M = number of gold memories, rank_max = rank of last gold memory
+        # Otherwise 0
+        found_ranks = []
+        for i, bid in enumerate(ranked_ids_int):
+            if bid in target_ids:
+                found_ranks.append(i + 1)  # 1-indexed rank
+
+        if len(found_ranks) == len(target_ids):
+            # All gold memories found in top-k
+            rank_max = max(found_ranks)
+            complete_mrr = len(target_ids) / rank_max
+        else:
+            complete_mrr = 0.0
+        complete_mrr_values.append(complete_mrr)
+
         # Hit@k
-        if any(int(bid) in target_ids for bid in ranked_ids):
+        if any(bid in target_ids for bid in ranked_ids_int):
             hit_at_k += 1
-        
+
         # Recall@k
-        found = sum(1 for bid in ranked_ids if int(bid) in target_ids)
+        found = sum(1 for bid in ranked_ids_int if bid in target_ids)
         recall_at_k_values.append(found / len(target_ids))
-    
+
     n = len(rows)
+    n_with_targets = len(first_rr_values)
     return {
-        'c_mrr': sum(cmrr_values) / len(cmrr_values) if cmrr_values else 0.0,
+        'first_relevant_mrr': sum(first_rr_values) / len(first_rr_values) if first_rr_values else 0.0,
+        'complete_mrr': sum(complete_mrr_values) / len(complete_mrr_values) if complete_mrr_values else 0.0,
         'hit_at_k': hit_at_k / n if n > 0 else 0.0,
         'recall_at_k': sum(recall_at_k_values) / len(recall_at_k_values) if recall_at_k_values else 0.0,
         'total_queries': n,
-        'queries_with_targets': len(cmrr_values),
+        'queries_with_targets': n_with_targets,
+        'filter_time_constraint': filter_time_constraint,
     }
 
 
@@ -208,6 +259,7 @@ def main():
         
         print(f"\n  Parse source distribution: {btf_latency.get('parse_source_distribution', {})}")
         print(f"  Time constraint distribution: {btf_latency.get('time_constraint_distribution', {})}")
+        print(f"  Time axis distribution: {btf_latency.get('time_axis_distribution', {})}")
         print(f"  Fallback count: {btf_latency.get('fallback_count', 0)}")
         if 'filtered_pool_size' in btf_latency:
             s = btf_latency['filtered_pool_size']
@@ -215,28 +267,28 @@ def main():
     
     # C. Summary table
     print("\n[C] Retrieval Latency Summary Table:")
-    print("| Method | Avg Parse | Avg Filter | Avg Rank | Avg Core No Parse | Avg Total With Parse | p50 Total | p95 Total |")
-    print("|--------|-----------|------------|----------|-------------------|----------------------|-----------|-----------|")
+    print("| Method | Avg Parse | Avg Filter | Avg Search No Parse | Avg Total With Parse | p50 Total | p95 Total |")
+    print("|--------|-----------|------------|---------------------|----------------------|-----------|-----------|")
     
-    b_rank = b_latency.get('retrieval_latency_rank', {}).get('mean', 0)
-    b_core = b_latency.get('retrieval_latency_core_no_parse', {}).get('mean', 0)
+    b_parse = b_latency.get('retrieval_latency_parse', {}).get('mean', 0)
+    b_filter = b_latency.get('retrieval_latency_filter', {}).get('mean', 0)
+    b_search = b_latency.get('retrieval_latency_search_no_parse', {}).get('mean', 0)
     b_total = b_latency.get('retrieval_latency_total_with_parse', {}).get('mean', 0)
     b_p50 = b_latency.get('retrieval_latency_total_with_parse', {}).get('p50', 0)
     b_p95 = b_latency.get('retrieval_latency_total_with_parse', {}).get('p95', 0)
-    print(f"| B | 0 | 0 | {b_rank:.3f} | {b_core:.3f} | {b_total:.3f} | {b_p50:.3f} | {b_p95:.3f} |")
+    print(f"| B | {b_parse:.3f} | {b_filter:.3f} | {b_search:.3f} | {b_total:.3f} | {b_p50:.3f} | {b_p95:.3f} |")
     
     btf_parse = btf_latency.get('retrieval_latency_parse', {}).get('mean', 0)
     btf_filter = btf_latency.get('retrieval_latency_filter', {}).get('mean', 0)
-    btf_rank = btf_latency.get('retrieval_latency_rank', {}).get('mean', 0)
-    btf_core = btf_latency.get('retrieval_latency_core_no_parse', {}).get('mean', 0)
+    btf_search = btf_latency.get('retrieval_latency_search_no_parse', {}).get('mean', 0)
     btf_total = btf_latency.get('retrieval_latency_total_with_parse', {}).get('mean', 0)
     btf_p50 = btf_latency.get('retrieval_latency_total_with_parse', {}).get('p50', 0)
     btf_p95 = btf_latency.get('retrieval_latency_total_with_parse', {}).get('p95', 0)
-    print(f"| B+TF | {btf_parse:.3f} | {btf_filter:.3f} | {btf_rank:.3f} | {btf_core:.3f} | {btf_total:.3f} | {btf_p50:.3f} | {btf_p95:.3f} |")
+    print(f"| B+TF | {btf_parse:.3f} | {btf_filter:.3f} | {btf_search:.3f} | {btf_total:.3f} | {btf_p50:.3f} | {btf_p95:.3f} |")
     
     results['latency_summary'] = {
-        'b': {'parse': 0, 'filter': 0, 'rank': b_rank, 'core_no_parse': b_core, 'total_with_parse': b_total, 'p50': b_p50, 'p95': b_p95},
-        'btf': {'parse': btf_parse, 'filter': btf_filter, 'rank': btf_rank, 'core_no_parse': btf_core, 'total_with_parse': btf_total, 'p50': btf_p50, 'p95': btf_p95},
+        'b': {'parse': b_parse, 'filter': b_filter, 'search_no_parse': b_search, 'total_with_parse': b_total, 'p50': b_p50, 'p95': b_p95},
+        'btf': {'parse': btf_parse, 'filter': btf_filter, 'search_no_parse': btf_search, 'total_with_parse': btf_total, 'p50': btf_p50, 'p95': btf_p95},
     }
     
     # D. Generation metrics
@@ -254,15 +306,45 @@ def main():
                 s = gen_stats['context_tokens']
                 print(f"  {label} context_tokens: mean={s['mean']:.0f}, p50={s['p50']:.0f}, p95={s['p95']:.0f}, max={s['max']:.0f}")
     
-    # E. Evidence metrics (C-MRR, Hit@5, Recall@5)
+    # E. Evidence metrics (First-Relevant MRR, Complete-MRR, Hit@5, Recall@5)
     print("\n[E] Evidence Metrics (top-5):")
+    print("\n  [E.1] All queries:")
     for label, fname in [("B", "retrieval_baseline.jsonl"), 
                           ("B+TF", "retrieval_enhanced.jsonl")]:
         path = os.path.join(out_dir, fname)
         if os.path.exists(path):
             ev = compute_evidence_metrics(path, top_k=5)
-            results[f'{label.lower().replace("+", "_")}_evidence'] = ev
-            print(f"  {label}: C-MRR={ev['c_mrr']:.4f}, Hit@5={ev['hit_at_k']:.4f}, Recall@5={ev['recall_at_k']:.4f} ({ev['queries_with_targets']}/{ev['total_queries']} queries)")
+            results[f'{label.lower().replace("+", "_")}_evidence_all'] = ev
+            print(f"    {label}: First-RR={ev['first_relevant_mrr']:.4f}, Complete-MRR={ev['complete_mrr']:.4f}, Hit@5={ev['hit_at_k']:.4f}, Recall@5={ev['recall_at_k']:.4f} ({ev['queries_with_targets']}/{ev['total_queries']})")
+    
+    print("\n  [E.2] Temporal-constrained subset (POINT or RANGE):")
+    for label, fname in [("B", "retrieval_baseline.jsonl"), 
+                          ("B+TF", "retrieval_enhanced.jsonl")]:
+        path = os.path.join(out_dir, fname)
+        if os.path.exists(path):
+            ev_point = compute_evidence_metrics(path, top_k=5, filter_time_constraint="POINT")
+            ev_range = compute_evidence_metrics(path, top_k=5, filter_time_constraint="RANGE")
+            # Combined temporal-constrained (POINT + RANGE)
+            all_rows = []
+            with open(path) as f:
+                for line in f:
+                    if line.strip():
+                        r = json.loads(line)
+                        if r.get('time_constraint_type') in ('POINT', 'RANGE'):
+                            all_rows.append(r)
+            # Write temp file for combined
+            import tempfile
+            with tempfile.NamedTemporaryFile(mode='w', suffix='.jsonl', delete=False) as tmp:
+                for r in all_rows:
+                    tmp.write(json.dumps(r) + '\n')
+                tmp_path = tmp.name
+            ev_combined = compute_evidence_metrics(tmp_path, top_k=5)
+            os.unlink(tmp_path)
+            
+            results[f'{label.lower().replace("+", "_")}_evidence_constrained'] = ev_combined
+            print(f"    {label} (POINT): First-RR={ev_point['first_relevant_mrr']:.4f}, Complete-MRR={ev_point['complete_mrr']:.4f}, Hit@5={ev_point['hit_at_k']:.4f}, Recall@5={ev_point['recall_at_k']:.4f} ({ev_point['queries_with_targets']}/{ev_point['total_queries']})")
+            print(f"    {label} (RANGE): First-RR={ev_range['first_relevant_mrr']:.4f}, Complete-MRR={ev_range['complete_mrr']:.4f}, Hit@5={ev_range['hit_at_k']:.4f}, Recall@5={ev_range['recall_at_k']:.4f} ({ev_range['queries_with_targets']}/{ev_range['total_queries']})")
+            print(f"    {label} (POINT+RANGE): First-RR={ev_combined['first_relevant_mrr']:.4f}, Complete-MRR={ev_combined['complete_mrr']:.4f}, Hit@5={ev_combined['hit_at_k']:.4f}, Recall@5={ev_combined['recall_at_k']:.4f} ({ev_combined['queries_with_targets']}/{ev_combined['total_queries']})")
     
     # F. Evaluation summary
     print("\n[F] Evaluation Summary:")
@@ -289,10 +371,10 @@ def main():
         f.write(f"Output directory: `{out_dir}`\n\n")
         
         f.write("## Retrieval Latency\n\n")
-        f.write("| Method | Avg Parse | Avg Filter | Avg Rank | Avg Core No Parse | Avg Total With Parse | p50 Total | p95 Total |\n")
-        f.write("|--------|-----------|------------|----------|-------------------|----------------------|-----------|----------|\n")
-        f.write(f"| B | 0 | 0 | {b_rank:.3f}s | {b_core:.3f}s | {b_total:.3f}s | {b_p50:.3f}s | {b_p95:.3f}s |\n")
-        f.write(f"| B+TF | {btf_parse:.3f}s | {btf_filter:.3f}s | {btf_rank:.3f}s | {btf_core:.3f}s | {btf_total:.3f}s | {btf_p50:.3f}s | {btf_p95:.3f}s |\n\n")
+        f.write("| Method | Avg Parse | Avg Filter | Avg Search No Parse | Avg Total With Parse | p50 Total | p95 Total |\n")
+        f.write("|--------|-----------|------------|---------------------|----------------------|-----------|----------|\n")
+        f.write(f"| B | {b_parse:.3f}s | {b_filter:.3f}s | {b_search:.3f}s | {b_total:.3f}s | {b_p50:.3f}s | {b_p95:.3f}s |\n")
+        f.write(f"| B+TF | {btf_parse:.3f}s | {btf_filter:.3f}s | {btf_search:.3f}s | {btf_total:.3f}s | {btf_p50:.3f}s | {btf_p95:.3f}s |\n\n")
         
         f.write("### B+TF Parse Source Distribution\n\n")
         f.write(f"{btf_latency.get('parse_source_distribution', {})}\n\n")
@@ -301,13 +383,37 @@ def main():
         f.write(f"### Fallback Count: {btf_latency.get('fallback_count', 0)}\n\n")
         
         f.write("## Evidence Metrics (top-5)\n\n")
-        f.write("| Method | C-MRR | Hit@5 | Recall@5 |\n")
-        f.write("|--------|-------|-------|----------|\n")
+        f.write("### All Queries\n\n")
+        f.write("| Method | First-RR | Complete-MRR | Hit@5 | Recall@5 | Queries w/ Targets |\n")
+        f.write("|--------|----------|--------------|-------|----------|--------------------|\n")
         for label, fname in [("B", "retrieval_baseline.jsonl"), ("B+TF", "retrieval_enhanced.jsonl")]:
             path = os.path.join(out_dir, fname)
             if os.path.exists(path):
                 ev = compute_evidence_metrics(path, top_k=5)
-                f.write(f"| {label} | {ev['c_mrr']:.4f} | {ev['hit_at_k']:.4f} | {ev['recall_at_k']:.4f} |\n")
+                f.write(f"| {label} | {ev['first_relevant_mrr']:.4f} | {ev['complete_mrr']:.4f} | {ev['hit_at_k']:.4f} | {ev['recall_at_k']:.4f} | {ev['queries_with_targets']}/{ev['total_queries']} |\n")
+        
+        f.write("\n### Temporal-Constrained Subset (POINT + RANGE)\n\n")
+        f.write("| Method | First-RR | Complete-MRR | Hit@5 | Recall@5 | Queries w/ Targets |\n")
+        f.write("|--------|----------|--------------|-------|----------|--------------------|\n")
+        for label, fname in [("B", "retrieval_baseline.jsonl"), ("B+TF", "retrieval_enhanced.jsonl")]:
+            path = os.path.join(out_dir, fname)
+            if os.path.exists(path):
+                # Combined temporal-constrained
+                all_rows = []
+                with open(path) as f2:
+                    for line in f2:
+                        if line.strip():
+                            r = json.loads(line)
+                            if r.get('time_constraint_type') in ('POINT', 'RANGE'):
+                                all_rows.append(r)
+                import tempfile
+                with tempfile.NamedTemporaryFile(mode='w', suffix='.jsonl', delete=False) as tmp:
+                    for r in all_rows:
+                        tmp.write(json.dumps(r) + '\n')
+                    tmp_path = tmp.name
+                ev = compute_evidence_metrics(tmp_path, top_k=5)
+                os.unlink(tmp_path)
+                f.write(f"| {label} | {ev['first_relevant_mrr']:.4f} | {ev['complete_mrr']:.4f} | {ev['hit_at_k']:.4f} | {ev['recall_at_k']:.4f} | {ev['queries_with_targets']}/{ev['total_queries']} |\n")
         
         f.write("\n## Evaluation Results\n\n")
         f.write("| Method | F1 | Precision | Recall | Accuracy | BLEU | Samples |\n")
