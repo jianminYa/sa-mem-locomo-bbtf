@@ -308,6 +308,101 @@ def main():
     
     # E. Evidence metrics (First-Relevant MRR, Complete-MRR, Hit@5, Recall@5)
     print("\n[E] Evidence Metrics (top-5):")
+    
+    # Load B+TF retrieval to get time_constraint_type for subset indexing
+    btf_path = os.path.join(out_dir, "retrieval_enhanced.jsonl")
+    btf_rows_map = {}  # (user_id, qa_idx) -> row
+    if os.path.exists(btf_path):
+        with open(btf_path) as f:
+            for line in f:
+                if line.strip():
+                    r = json.loads(line)
+                    btf_rows_map[(r.get('user_id'), r.get('qa_idx'))] = r
+    
+    # Build subset indices from B+TF time_constraint_type
+    subset_point_range = set()
+    subset_any_temporal = set()
+    for (uid, qidx), r in btf_rows_map.items():
+        tc = r.get('time_constraint_type', 'NONE')
+        if tc in ('POINT', 'RANGE'):
+            subset_point_range.add((uid, qidx))
+        if tc in ('POINT', 'RANGE', 'BEFORE', 'AFTER', 'ANCHOR'):
+            subset_any_temporal.add((uid, qidx))
+    
+    print(f"\n  Temporal subset sizes (from B+TF): POINT+RANGE={len(subset_point_range)}, any_temporal={len(subset_any_temporal)}")
+    
+    # Helper: filter rows by subset
+    def filter_rows_by_subset(path, subset_keys):
+        rows = []
+        with open(path) as f:
+            for line in f:
+                if line.strip():
+                    r = json.loads(line)
+                    if (r.get('user_id'), r.get('qa_idx')) in subset_keys:
+                        rows.append(r)
+        return rows
+    
+    # Helper: compute evidence metrics from rows
+    def compute_metrics_from_rows(rows, top_k=5):
+        first_rr_values = []
+        complete_mrr_values = []
+        hit_at_k = 0
+        recall_at_k_values = []
+        
+        for row in rows:
+            targets = row.get('target_boxes', [])
+            if not targets:
+                continue
+            target_ids = set()
+            for t in targets:
+                if isinstance(t, dict):
+                    tid = t.get('block_id')
+                    if tid is not None:
+                        target_ids.add(int(tid))
+                elif isinstance(t, (int, str)):
+                    try:
+                        target_ids.add(int(t))
+                    except (ValueError, TypeError):
+                        pass
+            if not target_ids:
+                continue
+            
+            rankings = row.get('rankings', {})
+            ranked_ids = rankings.get('content_event_topic_kw', [])[:top_k]
+            ranked_ids_int = [int(bid) for bid in ranked_ids]
+            
+            first_rr = 0.0
+            for i, bid in enumerate(ranked_ids_int):
+                if bid in target_ids:
+                    first_rr = 1.0 / (i + 1)
+                    break
+            first_rr_values.append(first_rr)
+            
+            found_ranks = [i + 1 for i, bid in enumerate(ranked_ids_int) if bid in target_ids]
+            if len(found_ranks) == len(target_ids):
+                complete_mrr = len(target_ids) / max(found_ranks)
+            else:
+                complete_mrr = 0.0
+            complete_mrr_values.append(complete_mrr)
+            
+            if any(bid in target_ids for bid in ranked_ids_int):
+                hit_at_k += 1
+            
+            found = sum(1 for bid in ranked_ids_int if bid in target_ids)
+            recall_at_k_values.append(found / len(target_ids))
+        
+        n = len(rows)
+        n_with_targets = len(first_rr_values)
+        return {
+            'first_relevant_mrr': sum(first_rr_values) / len(first_rr_values) if first_rr_values else 0.0,
+            'complete_mrr': sum(complete_mrr_values) / len(complete_mrr_values) if complete_mrr_values else 0.0,
+            'hit_at_k': hit_at_k / n if n > 0 else 0.0,
+            'recall_at_k': sum(recall_at_k_values) / len(recall_at_k_values) if recall_at_k_values else 0.0,
+            'total_queries': n,
+            'queries_with_targets': n_with_targets,
+        }
+    
+    # E.1 All queries
     print("\n  [E.1] All queries:")
     for label, fname in [("B", "retrieval_baseline.jsonl"), 
                           ("B+TF", "retrieval_enhanced.jsonl")]:
@@ -317,34 +412,17 @@ def main():
             results[f'{label.lower().replace("+", "_")}_evidence_all'] = ev
             print(f"    {label}: First-RR={ev['first_relevant_mrr']:.4f}, Complete-MRR={ev['complete_mrr']:.4f}, Hit@5={ev['hit_at_k']:.4f}, Recall@5={ev['recall_at_k']:.4f} ({ev['queries_with_targets']}/{ev['total_queries']})")
     
-    print("\n  [E.2] Temporal-constrained subset (POINT or RANGE):")
-    for label, fname in [("B", "retrieval_baseline.jsonl"), 
-                          ("B+TF", "retrieval_enhanced.jsonl")]:
-        path = os.path.join(out_dir, fname)
-        if os.path.exists(path):
-            ev_point = compute_evidence_metrics(path, top_k=5, filter_time_constraint="POINT")
-            ev_range = compute_evidence_metrics(path, top_k=5, filter_time_constraint="RANGE")
-            # Combined temporal-constrained (POINT + RANGE)
-            all_rows = []
-            with open(path) as f:
-                for line in f:
-                    if line.strip():
-                        r = json.loads(line)
-                        if r.get('time_constraint_type') in ('POINT', 'RANGE'):
-                            all_rows.append(r)
-            # Write temp file for combined
-            import tempfile
-            with tempfile.NamedTemporaryFile(mode='w', suffix='.jsonl', delete=False) as tmp:
-                for r in all_rows:
-                    tmp.write(json.dumps(r) + '\n')
-                tmp_path = tmp.name
-            ev_combined = compute_evidence_metrics(tmp_path, top_k=5)
-            os.unlink(tmp_path)
-            
-            results[f'{label.lower().replace("+", "_")}_evidence_constrained'] = ev_combined
-            print(f"    {label} (POINT): First-RR={ev_point['first_relevant_mrr']:.4f}, Complete-MRR={ev_point['complete_mrr']:.4f}, Hit@5={ev_point['hit_at_k']:.4f}, Recall@5={ev_point['recall_at_k']:.4f} ({ev_point['queries_with_targets']}/{ev_point['total_queries']})")
-            print(f"    {label} (RANGE): First-RR={ev_range['first_relevant_mrr']:.4f}, Complete-MRR={ev_range['complete_mrr']:.4f}, Hit@5={ev_range['hit_at_k']:.4f}, Recall@5={ev_range['recall_at_k']:.4f} ({ev_range['queries_with_targets']}/{ev_range['total_queries']})")
-            print(f"    {label} (POINT+RANGE): First-RR={ev_combined['first_relevant_mrr']:.4f}, Complete-MRR={ev_combined['complete_mrr']:.4f}, Hit@5={ev_combined['hit_at_k']:.4f}, Recall@5={ev_combined['recall_at_k']:.4f} ({ev_combined['queries_with_targets']}/{ev_combined['total_queries']})")
+    # E.2 Temporal-constrained subsets (using B+TF time_constraint_type as index)
+    for subset_name, subset_keys in [("POINT+RANGE", subset_point_range), ("any_temporal", subset_any_temporal)]:
+        print(f"\n  [E.2] Temporal-constrained subset ({subset_name}, n={len(subset_keys)}):")
+        for label, fname in [("B", "retrieval_baseline.jsonl"), 
+                              ("B+TF", "retrieval_enhanced.jsonl")]:
+            path = os.path.join(out_dir, fname)
+            if os.path.exists(path):
+                rows = filter_rows_by_subset(path, subset_keys)
+                ev = compute_metrics_from_rows(rows, top_k=5)
+                results[f'{label.lower().replace("+", "_")}_evidence_{subset_name}'] = ev
+                print(f"      {label}: First-RR={ev['first_relevant_mrr']:.4f}, Complete-MRR={ev['complete_mrr']:.4f}, Hit@5={ev['hit_at_k']:.4f}, Recall@5={ev['recall_at_k']:.4f} ({ev['queries_with_targets']}/{ev['total_queries']})")
     
     # F. Evaluation summary
     print("\n[F] Evaluation Summary:")
@@ -392,28 +470,18 @@ def main():
                 ev = compute_evidence_metrics(path, top_k=5)
                 f.write(f"| {label} | {ev['first_relevant_mrr']:.4f} | {ev['complete_mrr']:.4f} | {ev['hit_at_k']:.4f} | {ev['recall_at_k']:.4f} | {ev['queries_with_targets']}/{ev['total_queries']} |\n")
         
-        f.write("\n### Temporal-Constrained Subset (POINT + RANGE)\n\n")
-        f.write("| Method | First-RR | Complete-MRR | Hit@5 | Recall@5 | Queries w/ Targets |\n")
-        f.write("|--------|----------|--------------|-------|----------|--------------------|\n")
-        for label, fname in [("B", "retrieval_baseline.jsonl"), ("B+TF", "retrieval_enhanced.jsonl")]:
-            path = os.path.join(out_dir, fname)
-            if os.path.exists(path):
-                # Combined temporal-constrained
-                all_rows = []
-                with open(path) as f2:
-                    for line in f2:
-                        if line.strip():
-                            r = json.loads(line)
-                            if r.get('time_constraint_type') in ('POINT', 'RANGE'):
-                                all_rows.append(r)
-                import tempfile
-                with tempfile.NamedTemporaryFile(mode='w', suffix='.jsonl', delete=False) as tmp:
-                    for r in all_rows:
-                        tmp.write(json.dumps(r) + '\n')
-                    tmp_path = tmp.name
-                ev = compute_evidence_metrics(tmp_path, top_k=5)
-                os.unlink(tmp_path)
-                f.write(f"| {label} | {ev['first_relevant_mrr']:.4f} | {ev['complete_mrr']:.4f} | {ev['hit_at_k']:.4f} | {ev['recall_at_k']:.4f} | {ev['queries_with_targets']}/{ev['total_queries']} |\n")
+        # Temporal-constrained subsets (using B+TF time_constraint_type as index)
+        for subset_name, subset_keys in [("POINT+RANGE", subset_point_range), ("any_temporal", subset_any_temporal)]:
+            f.write(f"\n### Temporal-Constrained Subset ({subset_name}, n={len(subset_keys)})\n\n")
+            f.write("*Subset defined by B+TF time_constraint_type; same (user_id, qa_idx) used for both methods.*\n\n")
+            f.write("| Method | First-RR | Complete-MRR | Hit@5 | Recall@5 | Queries w/ Targets |\n")
+            f.write("|--------|----------|--------------|-------|----------|--------------------|\n")
+            for label, fname in [("B", "retrieval_baseline.jsonl"), ("B+TF", "retrieval_enhanced.jsonl")]:
+                path = os.path.join(out_dir, fname)
+                if os.path.exists(path):
+                    rows = filter_rows_by_subset(path, subset_keys)
+                    ev = compute_metrics_from_rows(rows, top_k=5)
+                    f.write(f"| {label} | {ev['first_relevant_mrr']:.4f} | {ev['complete_mrr']:.4f} | {ev['hit_at_k']:.4f} | {ev['recall_at_k']:.4f} | {ev['queries_with_targets']}/{ev['total_queries']} |\n")
         
         f.write("\n## Evaluation Results\n\n")
         f.write("| Method | F1 | Precision | Recall | Accuracy | BLEU | Samples |\n")

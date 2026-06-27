@@ -718,9 +718,12 @@ class EnhancedRetriever:
         # Use rewritten query if available, otherwise use original
         query_text = directive.rewritten_query if directive else question
         t_query_vec_start = time.perf_counter()
+        # Use different cache key than B baseline to avoid reusing original question embedding
+        import hashlib
+        query_hash = hashlib.md5(query_text.encode()).hexdigest()[:12]
         qvec = store.get_vector(
-            f"qa_{user_id}_{q_id}",
-            "question",
+            f"qa_enhanced_{user_id}_{q_id}_{query_hash}",
+            "question_rewritten",
             query_text,
             note=f"U{user_id}_QA_Enhanced"
         )
