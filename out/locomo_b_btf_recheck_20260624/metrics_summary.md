@@ -1,6 +1,6 @@
 # LoCoMo B/B+TF Metrics Summary (with latency fix)
 
-Output directory: `out/locomo_b_btf_recheck_20260624`
+Output directory: `out\locomo_b_btf_recheck_20260624`
 
 ## Retrieval Latency
 
@@ -8,6 +8,37 @@ Output directory: `out/locomo_b_btf_recheck_20260624`
 |--------|-----------|------------|---------------------|----------------------|-----------|----------|
 | B | 0.000s | 0.000s | 0.105s | 0.105s | 0.104s | 0.147s |
 | B+TF | 1.003s | 0.002s | 2.227s | 3.231s | 3.189s | 4.264s |
+
+`Avg Search No Parse` excludes LLM query parsing, but still includes rewritten-query embedding, vector-cache flush, and semantic ranking. For paper Table 3 style comparison, use the paper-like core search boundary below.
+
+### Paper-like Core Search Latency
+
+Core search = temporal filter + block vector fetch + cosine scoring + sorting. It excludes LLM parsing, rewritten-query embedding API calls, and vector-cache flush.
+
+#### All Queries (n=1540)
+
+| Method | Core Mean | Core p50 | Core p95 | Initial Pool Mean | Filtered Pool Mean | Filtered Pool p50 |
+|--------|-----------|----------|----------|-------------------|--------------------|-------------------|
+| B | 0.1024s | 0.1023s | 0.1438s | 93.36 | 93.36 | 93.0 |
+| B+TF | 0.1037s | 0.1078s | 0.1522s | 93.36 | 87.33 | 93.0 |
+
+#### Category-2 Temporal Questions (n=321)
+
+| Method | Core Mean | Core p50 | Core p95 | Initial Pool Mean | Filtered Pool Mean | Filtered Pool p50 |
+|--------|-----------|----------|----------|-------------------|--------------------|-------------------|
+| B | 0.1010s | 0.1010s | 0.1473s | 91.65 | 91.65 | 93.0 |
+| B+TF | 0.1001s | 0.1040s | 0.1507s | 91.65 | 83.88 | 86.0 |
+
+B+TF parser output for category-2 questions: NONE=281, POINT=36, RANGE=4.
+
+#### Category-2 POINT/RANGE Triggered Subset (n=40)
+
+| Method | Core Mean | Core p50 | Core p95 | Initial Pool Mean | Filtered Pool Mean | Filtered Pool p50 |
+|--------|-----------|----------|----------|-------------------|--------------------|-------------------|
+| B | 0.1060s | 0.1053s | 0.1449s | 96.00 | 96.00 | 93.0 |
+| B+TF | 0.0429s | 0.0085s | 0.1362s | 96.00 | 33.65 | 4.5 |
+
+Temporal filtering shows the expected core-latency reduction on the triggered category-2 subset, but this local gain is diluted across all queries because most category-2 queries are parsed as `NONE` and because online query embedding/cache flush dominate the no-parse wall time.
 
 ### B+TF Parse Source Distribution
 
