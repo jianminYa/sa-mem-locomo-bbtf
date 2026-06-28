@@ -201,7 +201,7 @@ This section documents a partial reproduction of SA-Mem's LoCoMo B/B+TF experime
 | Latency (B+TF triggered temporal subset) | ✅ Local gain | Category-2 POINT/RANGE subset core p50=0.0085s; pool 96.00 -> 33.65 |
 | Temporal gain | ❌ Not reproduced | B+TF < B on temporal-constrained queries |
 
-See `REPRODUCTION_REPORT_RECHECK.md` for full details.
+See `docs/locomo_b_btf_reproduction.md` for full details.
 
 ### Latency Boundary Note
 
