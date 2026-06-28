@@ -18,7 +18,7 @@ The main finding is:
 - **B+TF does not reproduce the paper's overall temporal-filtering gain** in QA or evidence metrics.
 - **B+TF does show the intended core-latency behavior on the subset where temporal constraints are actually triggered**, but this local gain is diluted in the full run because most category-2 questions are parsed as `NONE`, and online rewritten-query embedding/cache flush dominates wall-clock timing.
 
-Therefore, this should be submitted upstream as a **partial reproduction example**, not as a full reproduction claim.
+The report is framed as a focused B/B+TF reproduction record: it documents the aligned B baseline, the remaining B+TF discrepancy, and the code/configuration details needed for follow-up checks.
 
 ## Reproduction Scope
 
@@ -35,7 +35,19 @@ Therefore, this should be submitted upstream as a **partial reproduction example
 | Embedding model | `text-embedding-3-small` |
 | Result directory | `out/locomo_b_btf_recheck_20260624/` |
 
-This run reuses the public code path rather than implementing graph-enhanced retrieval. It does not claim reproduction of B+HTM, graph expansion, HaluMem, or controlled token-budget experiments beyond the top-5 evidence comparison reported below.
+This run covers the non-graph B/B+TF path. B+HTM, graph expansion, HaluMem, and controlled token-budget experiments are outside this run and can be evaluated separately.
+
+## Query Rewriting Note
+
+The current public repository code already contains a `rewritten_query` field in `QueryParser`, and enhanced retrieval uses `directive.rewritten_query` as the query text for vector ranking. In that sense, query rewriting was not introduced from scratch in this reproduction.
+
+However, the paper does not provide the exact query-rewriting prompt or an isolated ablation separating query rewriting from temporal filtering, and the README describes the enhanced mode mainly as Time Filtering. The recheck run fixed a cache-key collision so that B+TF no longer reuses B's original-question embedding; after that fix, B+TF actually uses the rewritten-query embedding and its QA/evidence metrics drop.
+
+This means the current B+TF result should be read as the behavior of the public enhanced code path with rewritten-query embeddings enabled. To isolate temporal filtering itself, a useful follow-up is an additional ablation:
+
+- **B+TF-original-query**: keep query parsing and temporal-index candidate pruning, but use the original question embedding for semantic ranking.
+
+That ablation would clarify whether the B+TF gap comes mainly from temporal pruning, query rewriting quality, or their interaction.
 
 ## Reproduction Pipeline
 
@@ -240,11 +252,12 @@ Same pattern: B outperforms B+TF on temporal queries.
 3. **B+TF end-to-end retrieval latency**: Online no-parse wall time is dominated by rewritten-query embedding and cache flush
 4. **Full-run B+TF latency improvement**: Paper-like core search only improves on the subset where temporal constraints are actually triggered; across all queries the candidate-pool reduction is too small
 
-### Cannot Claim
+### Open / Out-of-Scope for This Run
 
-- Full reproduction of paper's temporal filtering ablation (Table 7)
-- B+TF improvement over B
-- Controlled token budget equivalence
+- Paper Table 7 temporal-filtering ablation remains unresolved in this reproduction.
+- B+TF improvement over B is not observed in the current run.
+- Controlled token-budget equivalence is not evaluated by this top-5 setup.
+- A no-rewrite B+TF ablation is still needed to isolate temporal filtering from rewritten-query embedding effects.
 
 ### Can Claim
 
@@ -292,7 +305,7 @@ The original target repository is `RichardWang11/SA-Mem-Research`. The upstream 
 
 ### Suggested Upstream Wording
 
-The upstream report should use conservative wording:
+The upstream report can use concise wording like:
 
 > This is a partial LoCoMo B/B+TF reproduction. The B baseline is close to the paper's LoCoMo QA, evidence, and warm/core latency metrics. After isolating rewritten-query embeddings from baseline query embeddings, B+TF does not reproduce the paper's overall QA/evidence temporal-filtering gain in this run. On the category-2 subset where the parser emits POINT/RANGE constraints, temporal filtering does reduce the candidate pool and core semantic-ranking latency, but this local effect is diluted in the full run.
 
