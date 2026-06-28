@@ -182,74 +182,51 @@ Useful evaluation options:
 - `--eval-output`: custom detailed evaluation output path.
 - `--summary-output`: custom summary output path.
 
-## LoCoMo B/B+TF Reproduction (Partial)
+## LoCoMo B/B+TF 复现预览（中文）
 
-This section documents a partial reproduction of SA-Mem's LoCoMo B/B+TF experiments.
+本小节记录我们基于公开代码对 SA-Mem LoCoMo B/B+TF 路径的复现结果。详细说明见：
 
-**Status**: Partial reproduction. B baseline is close to paper numbers, but B+TF temporal filtering gain is NOT reproduced in this run.
+- `docs/locomo_b_btf_reproduction.md`
+- `docs/locomo_b_btf_metrics_summary.md`
 
-### Key Findings
+### 核心观察
 
-| Aspect | Status | Details |
-|--------|--------|---------|
-| QA (B) | ✅ Close | F1=0.5133, BLEU=0.3892 (paper: ~0.52, ~0.39) |
-| QA (B+TF) | ❌ Lower | F1=0.4879 (lower than B) |
-| Evidence (B) | ✅ Close | Hit@5=0.8201, Recall@5=0.7580 (paper: 0.8162, 0.7475) |
-| Evidence (B+TF) | ❌ Lower | Hit@5=0.7708, Recall@5=0.7065 (lower than B) |
-| Latency (B warm) | ✅ Close | Search=0.105s |
-| Temporal gain | ❌ Not reproduced | B+TF < B on temporal-constrained queries |
+| 方面 | 结果 | 说明 |
+|------|------|------|
+| QA（B） | 接近论文 | F1=0.5133，BLEU=0.3892；论文 SA-Mem overall 约 0.5203/0.3908 |
+| QA（B+TF） | 未对齐 | F1=0.4879，BLEU=0.3692，低于 B |
+| Evidence（B） | 接近论文 | Hit@5=0.8201，Recall@5=0.7580；论文 Table 5 参考值 0.8162/0.7475 |
+| Evidence（B+TF） | 未对齐 | Hit@5=0.7708，Recall@5=0.7065，低于 B |
+| Latency（B core） | 接近论文 | core search p50=0.102s，p95=0.144s |
+| Latency（B+TF 全量） | 效果有限 | core search p50=0.108s；平均候选池 93.36 -> 87.33 |
+| Latency（B+TF 触发时间约束子集） | 有局部收益 | category-2 POINT/RANGE 子集 core p50=0.0085s；候选池 96.00 -> 33.65 |
 
-See `REPRODUCTION_REPORT_RECHECK.md` for full details.
+### 实验配置
 
-### Configuration
-
-| Parameter | Value |
-|-----------|-------|
-| Dataset | LoCoMo10 (10 conversations, 1540 non-cat5 QA pairs) |
-| LLM | gpt-4o-mini |
-| Embedding | text-embedding-3-small |
+| 参数 | 值 |
+|------|----|
+| Dataset | LoCoMo10，10 conversations，1540 个非 category-5 QA |
+| LLM | `gpt-4o-mini` |
+| Embedding | `text-embedding-3-small` |
 | Retrieval top-k | 5 |
 | Generation top-n | 5 |
-| Text mode | content |
+| Text mode | `content` |
 | Graph | disabled |
-| axis-mode | auto (bi-temporal inference) |
+| axis-mode | auto |
 
-### Evidence Metrics Definition
+### 重要口径说明
 
-- **Complete-MRR**: If all gold memories in top-k, score = M / rank_max, else 0 (paper definition)
-- **First-RR**: Reciprocal rank of first relevant item (supplementary)
-- **Hit@5**: Fraction of queries with ≥1 gold memory in top-5
-- **Recall@5**: Fraction of gold memories found in top-5
+B+TF 当前公开代码路径会使用 `QueryParser` 生成 `rewritten_query`，并用 rewritten-query embedding 做语义排序。论文没有给出 exact rewriting prompt，也没有单独拆分 query rewriting 与 temporal filtering 的 ablation。因此，当前 B+TF 结果应理解为“公开 enhanced retrieval 路径 + rewritten-query embedding 启用”的结果。
 
-**Note**: Our top-5 is not equivalent to paper's controlled token budget.
+后续如果要进一步定位差异，可以补一个 `B+TF-original-query` ablation：保留 query parsing 和 temporal-index candidate pruning，但语义排序时使用原始 question embedding。
 
-### Running the Experiments
+### 不建议提交到上游的内容
 
-```bash
-# Full run (with build)
-RUN_ID=locomo_b_btf_full bash scripts/run_locomo_b_btf.sh
+上游 PR 建议只提交 `docs/` 下的精简报告和必要脚本/补丁，不提交完整运行目录：
 
-# Skip build (reuse existing memory blocks)
-SKIP_BUILD=1 RUN_ID=locomo_b_btf_full bash scripts/run_locomo_b_btf.sh
-
-# Custom run with axis mode
-python scripts/retrieve_locomo_b_btf.py --top-k 5 --mode both \
-  --run-id locomo_b_btf_full --output-dir out/custom_run \
-  --raw-data-file dataset/locomo10.json \
-  --final-content-file out/locomo_b_btf_full/final_boxes_content.jsonl \
-  --limit-conversations -1 --overwrite --axis-mode auto
-
-# Metrics analysis
-python scripts/analyze_repro_metrics.py out/locomo_b_btf_recheck_20260624
-```
-
-### Output Directories
-
-| Directory | Description |
-|-----------|-------------|
-| `out/locomo_b_btf_full/` | Original run (old retrieval latency) |
-| `out/locomo_b_btf_fix_latency_20260623/` | Fixed fallback + old latency |
-| `out/locomo_b_btf_warm_latency_20260623/` | Warm-cache + bi-temporal |
-| `out/locomo_b_btf_recheck_20260624/` | Corrected query key + evidence metrics |
-
-**Note**: These directories contain large files (vector_store, token_stream, etc.) and should not be submitted to upstream PRs.
+- 不提交 `.env`
+- 不提交 `dataset/locomo10.json`
+- 不提交完整 `out/locomo_b_btf_*`
+- 不提交 vector cache
+- 不提交 raw retrieval/generation/evaluation JSONL
+- 不提交 token stream 或 trace log
