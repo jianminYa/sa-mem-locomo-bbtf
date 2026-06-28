@@ -186,7 +186,7 @@ Useful evaluation options:
 
 This section documents a partial reproduction of SA-Mem's LoCoMo B/B+TF experiments.
 
-**Status**: Partial reproduction. B baseline is close to paper numbers, but B+TF temporal filtering gain is NOT reproduced in this run.
+**Status**: Partial reproduction. B baseline is close to paper numbers, but B+TF QA/evidence gains are NOT reproduced in this run. For latency, B+TF only shows the expected core-search speedup on the subset where temporal constraints are actually triggered.
 
 ### Key Findings
 
@@ -196,10 +196,21 @@ This section documents a partial reproduction of SA-Mem's LoCoMo B/B+TF experime
 | QA (B+TF) | ❌ Lower | F1=0.4879 (lower than B) |
 | Evidence (B) | ✅ Close | Hit@5=0.8201, Recall@5=0.7580 (paper: 0.8162, 0.7475) |
 | Evidence (B+TF) | ❌ Lower | Hit@5=0.7708, Recall@5=0.7065 (lower than B) |
-| Latency (B warm) | ✅ Close | Search=0.105s |
+| Latency (B core) | ✅ Close | Core search p50=0.102s, p95=0.144s |
+| Latency (B+TF all) | ⚠️ Mixed | Core search p50=0.108s; candidate pool 93.36 -> 87.33 on average |
+| Latency (B+TF triggered temporal subset) | ✅ Local gain | Category-2 POINT/RANGE subset core p50=0.0085s; pool 96.00 -> 33.65 |
 | Temporal gain | ❌ Not reproduced | B+TF < B on temporal-constrained queries |
 
-See `REPRODUCTION_REPORT_RECHECK.md` for full details.
+See `docs/locomo_b_btf_reproduction.md` for full details.
+
+### Latency Boundary Note
+
+Paper Table 3 reports search-stage latency. The reproduction logs separate:
+
+- **Online no-parse wall**: excludes LLM query parsing, but still includes rewritten-query embedding, vector-cache flush, and semantic ranking.
+- **Paper-like core search**: temporal filter + block vector fetch + cosine scoring + sorting.
+
+After the query-cache fix, B+TF online no-parse wall time is dominated by rewritten-query embedding and cache flush. Under the paper-like core-search boundary, B+TF is comparable to B across all queries and faster only on category-2 queries where the parser emits POINT/RANGE constraints.
 
 ### Configuration
 

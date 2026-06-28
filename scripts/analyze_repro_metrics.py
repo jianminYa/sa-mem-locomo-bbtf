@@ -24,7 +24,7 @@ def percentile(data, p):
 def analyze_retrieval_latency(jsonl_path):
     """Analyze retrieval latency from a JSONL file."""
     rows = []
-    with open(jsonl_path) as f:
+    with open(jsonl_path, encoding='utf-8') as f:
         for line in f:
             if line.strip():
                 rows.append(json.loads(line))
@@ -93,10 +93,126 @@ def analyze_retrieval_latency(jsonl_path):
     return stats
 
 
+def summarize_values(values):
+    """Return mean/p50/p95/max/min for a list of numeric values."""
+    values = list(values)
+    if not values:
+        return {'mean': 0.0, 'p50': 0.0, 'p95': 0.0, 'max': 0.0, 'min': 0.0}
+    return {
+        'mean': sum(values) / len(values),
+        'p50': percentile(values, 50),
+        'p95': percentile(values, 95),
+        'max': max(values),
+        'min': min(values),
+    }
+
+
+def load_jsonl(path):
+    rows = []
+    with open(path, encoding='utf-8') as f:
+        for line in f:
+            if line.strip():
+                rows.append(json.loads(line))
+    return rows
+
+
+def latency_subset_summary(rows):
+    """Summarize paper-like core search latency and candidate pool sizes."""
+    core_fields = [
+        'retrieval_latency_filter',
+        'retrieval_latency_block_vector_fetch',
+        'retrieval_latency_cosine',
+        'retrieval_latency_sort',
+    ]
+    rank_fields = [
+        'retrieval_latency_block_vector_fetch',
+        'retrieval_latency_cosine',
+        'retrieval_latency_sort',
+    ]
+    core_values = [
+        sum(float(r.get(field, 0.0) or 0.0) for field in core_fields)
+        for r in rows
+    ]
+    rank_values = [
+        sum(float(r.get(field, 0.0) or 0.0) for field in rank_fields)
+        for r in rows
+    ]
+    filtered_pool = [float(r.get('filtered_pool_size', 0) or 0) for r in rows]
+    initial_pool = [float(r.get('initial_pool_size', 0) or 0) for r in rows]
+    return {
+        'count': len(rows),
+        'core_search': summarize_values(core_values),
+        'rank_without_filter_qvec_flush': summarize_values(rank_values),
+        'filtered_pool_size': summarize_values(filtered_pool),
+        'initial_pool_size': summarize_values(initial_pool),
+    }
+
+
+def same_query_subset(rows, subset_keys):
+    return [
+        r for r in rows
+        if (r.get('user_id'), r.get('qa_idx')) in subset_keys
+    ]
+
+
+def compute_core_latency_diagnostics(b_retrieval_path, btf_retrieval_path):
+    """Compute paper-like core search diagnostics for all and temporal subsets."""
+    b_rows = load_jsonl(b_retrieval_path)
+    btf_rows = load_jsonl(btf_retrieval_path)
+
+    cat2_keys = {
+        (r.get('user_id'), r.get('qa_idx'))
+        for r in btf_rows
+        if str(r.get('category') or r.get('qa_category')) == '2'
+    }
+    cat2_temporal_keys = {
+        (r.get('user_id'), r.get('qa_idx'))
+        for r in btf_rows
+        if str(r.get('category') or r.get('qa_category')) == '2'
+        and r.get('time_constraint_type') in {'POINT', 'RANGE'}
+    }
+
+    diagnostics = {
+        'all_queries': {
+            'B': latency_subset_summary(b_rows),
+            'B+TF': latency_subset_summary(btf_rows),
+        },
+        'category_2': {
+            'B': latency_subset_summary(same_query_subset(b_rows, cat2_keys)),
+            'B+TF': latency_subset_summary(same_query_subset(btf_rows, cat2_keys)),
+        },
+        'category_2_POINT_RANGE': {
+            'B': latency_subset_summary(same_query_subset(b_rows, cat2_temporal_keys)),
+            'B+TF': latency_subset_summary(same_query_subset(btf_rows, cat2_temporal_keys)),
+        },
+        'category_2_constraint_distribution': dict(Counter(
+            r.get('time_constraint_type', 'NONE')
+            for r in btf_rows
+            if str(r.get('category') or r.get('qa_category')) == '2'
+        )),
+    }
+    return diagnostics
+
+
+def write_core_latency_table(f, title, rows):
+    f.write(f"\n#### {title}\n\n")
+    f.write("| Method | Core Mean | Core p50 | Core p95 | Initial Pool Mean | Filtered Pool Mean | Filtered Pool p50 |\n")
+    f.write("|--------|-----------|----------|----------|-------------------|--------------------|-------------------|\n")
+    for label in ["B", "B+TF"]:
+        s = rows[label]
+        core = s['core_search']
+        initial = s['initial_pool_size']
+        filtered = s['filtered_pool_size']
+        f.write(
+            f"| {label} | {core['mean']:.4f}s | {core['p50']:.4f}s | {core['p95']:.4f}s | "
+            f"{initial['mean']:.2f} | {filtered['mean']:.2f} | {filtered['p50']:.1f} |\n"
+        )
+
+
 def analyze_generation_metrics(jsonl_path):
     """Analyze generation metrics from a JSONL file."""
     rows = []
-    with open(jsonl_path) as f:
+    with open(jsonl_path, encoding='utf-8') as f:
         for line in f:
             if line.strip():
                 rows.append(json.loads(line))
@@ -142,7 +258,7 @@ def compute_evidence_metrics(retrieval_path, top_k=5, filter_time_constraint=Non
         dict with metrics
     """
     rows = []
-    with open(retrieval_path) as f:
+    with open(retrieval_path, encoding='utf-8') as f:
         for line in f:
             if line.strip():
                 rows.append(json.loads(line))
@@ -290,6 +406,31 @@ def main():
         'b': {'parse': b_parse, 'filter': b_filter, 'search_no_parse': b_search, 'total_with_parse': b_total, 'p50': b_p50, 'p95': b_p95},
         'btf': {'parse': btf_parse, 'filter': btf_filter, 'search_no_parse': btf_search, 'total_with_parse': btf_total, 'p50': btf_p50, 'p95': btf_p95},
     }
+
+    # C.1 Paper-like core search latency diagnostics
+    core_latency = {}
+    if os.path.exists(b_retrieval) and os.path.exists(btf_retrieval):
+        core_latency = compute_core_latency_diagnostics(b_retrieval, btf_retrieval)
+        results['paper_like_core_latency'] = core_latency
+        print("\n[C.1] Paper-like Core Search Latency:")
+        for subset_name, subset_rows in [
+            ("all_queries", core_latency['all_queries']),
+            ("category_2", core_latency['category_2']),
+            ("category_2_POINT_RANGE", core_latency['category_2_POINT_RANGE']),
+        ]:
+            print(f"  {subset_name}:")
+            for label in ["B", "B+TF"]:
+                s = subset_rows[label]
+                core = s['core_search']
+                init = s['initial_pool_size']
+                filt = s['filtered_pool_size']
+                print(
+                    f"    {label}: core_mean={core['mean']:.4f}s, "
+                    f"p50={core['p50']:.4f}s, p95={core['p95']:.4f}s, "
+                    f"pool_mean={init['mean']:.2f}->{filt['mean']:.2f}, "
+                    f"pool_p50={filt['p50']:.1f}"
+                )
+        print(f"  category_2 constraints: {core_latency['category_2_constraint_distribution']}")
     
     # D. Generation metrics
     print("\n[D] Generation Metrics:")
@@ -313,7 +454,7 @@ def main():
     btf_path = os.path.join(out_dir, "retrieval_enhanced.jsonl")
     btf_rows_map = {}  # (user_id, qa_idx) -> row
     if os.path.exists(btf_path):
-        with open(btf_path) as f:
+        with open(btf_path, encoding='utf-8') as f:
             for line in f:
                 if line.strip():
                     r = json.loads(line)
@@ -334,7 +475,7 @@ def main():
     # Helper: filter rows by subset
     def filter_rows_by_subset(path, subset_keys):
         rows = []
-        with open(path) as f:
+        with open(path, encoding='utf-8') as f:
             for line in f:
                 if line.strip():
                     r = json.loads(line)
@@ -430,7 +571,7 @@ def main():
                           ("B+TF", "evaluation_summary_locomo_time_filtering.json")]:
         path = os.path.join(out_dir, fname)
         if os.path.exists(path):
-            with open(path) as f:
+            with open(path, encoding='utf-8') as f:
                 ev = json.load(f)
             results[f'{label.lower().replace("+", "_")}_evaluation'] = ev
             o = ev.get('overall', {})
@@ -438,13 +579,13 @@ def main():
     
     # Save JSON
     json_path = os.path.join(out_dir, "metrics_summary.json")
-    with open(json_path, 'w') as f:
+    with open(json_path, 'w', encoding='utf-8') as f:
         json.dump(results, f, indent=2, default=str)
     print(f"\nSaved: {json_path}")
     
     # Save Markdown
     md_path = os.path.join(out_dir, "metrics_summary.md")
-    with open(md_path, 'w') as f:
+    with open(md_path, 'w', encoding='utf-8') as f:
         f.write("# LoCoMo B/B+TF Metrics Summary (with latency fix)\n\n")
         f.write(f"Output directory: `{out_dir}`\n\n")
         
@@ -453,6 +594,25 @@ def main():
         f.write("|--------|-----------|------------|---------------------|----------------------|-----------|----------|\n")
         f.write(f"| B | {b_parse:.3f}s | {b_filter:.3f}s | {b_search:.3f}s | {b_total:.3f}s | {b_p50:.3f}s | {b_p95:.3f}s |\n")
         f.write(f"| B+TF | {btf_parse:.3f}s | {btf_filter:.3f}s | {btf_search:.3f}s | {btf_total:.3f}s | {btf_p50:.3f}s | {btf_p95:.3f}s |\n\n")
+
+        if core_latency:
+            f.write("`Avg Search No Parse` excludes LLM query parsing, but still includes rewritten-query embedding, vector-cache flush, and semantic ranking. For paper Table 3 style comparison, use the paper-like core search boundary below.\n\n")
+            f.write("### Paper-like Core Search Latency\n\n")
+            f.write("Core search = temporal filter + block vector fetch + cosine scoring + sorting. It excludes LLM parsing, rewritten-query embedding API calls, and vector-cache flush.\n")
+            write_core_latency_table(f, "All Queries (n=1540)", core_latency['all_queries'])
+            write_core_latency_table(f, "Category-2 Temporal Questions (n=321)", core_latency['category_2'])
+            cdist = core_latency.get('category_2_constraint_distribution', {})
+            f.write(
+                f"\nB+TF parser output for category-2 questions: "
+                f"NONE={cdist.get('NONE', 0)}, POINT={cdist.get('POINT', 0)}, RANGE={cdist.get('RANGE', 0)}.\n"
+            )
+            triggered_n = core_latency['category_2_POINT_RANGE']['B+TF']['count']
+            write_core_latency_table(
+                f,
+                f"Category-2 POINT/RANGE Triggered Subset (n={triggered_n})",
+                core_latency['category_2_POINT_RANGE'],
+            )
+            f.write("\nTemporal filtering shows the expected core-latency reduction on the triggered category-2 subset, but this local gain is diluted across all queries because most category-2 queries are parsed as `NONE` and because online query embedding/cache flush dominate the no-parse wall time.\n\n")
         
         f.write("### B+TF Parse Source Distribution\n\n")
         f.write(f"{btf_latency.get('parse_source_distribution', {})}\n\n")
@@ -489,7 +649,7 @@ def main():
         for label, fname in [("B", "evaluation_summary_locomo_baseline.json"), ("B+TF", "evaluation_summary_locomo_time_filtering.json")]:
             path = os.path.join(out_dir, fname)
             if os.path.exists(path):
-                with open(path) as ef:
+                with open(path, encoding='utf-8') as ef:
                     ev = json.load(ef)
                 o = ev.get('overall', {})
                 f.write(f"| {label} | {o.get('avg_f1', 0):.4f} | {o.get('avg_precision', 0):.4f} | {o.get('avg_recall', 0):.4f} | {o.get('avg_accuracy', 0):.4f} | {o.get('avg_bleu', 0):.4f} | {ev.get('total_samples', 0)} |\n")
@@ -498,7 +658,7 @@ def main():
         for label, fname in [("B", "evaluation_summary_locomo_baseline.json"), ("B+TF", "evaluation_summary_locomo_time_filtering.json")]:
             path = os.path.join(out_dir, fname)
             if os.path.exists(path):
-                with open(path) as ef:
+                with open(path, encoding='utf-8') as ef:
                     ev = json.load(ef)
                 f.write(f"\n### {label}\n\n")
                 f.write("| Category | Count | F1 | Precision | Recall | Accuracy | BLEU |\n")

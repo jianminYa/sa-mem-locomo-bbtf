@@ -1,6 +1,6 @@
 # LoCoMo B/B+TF Metrics Summary (with latency fix)
 
-Output directory: `out\locomo_b_btf_recheck_20260624`
+Output directory: `out/locomo_b_btf_recheck_20260624`
 
 ## Retrieval Latency
 

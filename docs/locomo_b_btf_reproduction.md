@@ -1,7 +1,7 @@
-# SA-Mem LoCoMo B/B+TF Reproduction Report (Recheck Version)
+# LoCoMo B/B+TF Reproduction Notes
 
 **Base commit**: `8d6ed17`
-**Report branch**: `repro-latency-report-core-search`
+**Preview branch**: `upstream-repro-submission-preview`
 **Date**: 2026-06-24
 **New result directory**: `out/locomo_b_btf_recheck_20260624/`
 
@@ -51,7 +51,7 @@ That ablation would clarify whether the B+TF gap comes mainly from temporal prun
 
 ### Qualitative Examples from the Recheck Analysis
 
-The auxiliary analysis in `ANALYSIS_BTF_VS_B.md` gives several useful examples for interpreting the B+TF gap. These examples are diagnostic only; they are not a replacement for a dedicated no-rewrite ablation.
+The recheck analysis gives several useful examples for interpreting the B+TF gap. These examples are diagnostic only; they are not a replacement for a dedicated no-rewrite ablation.
 
 **Rewritten-query behavior.** The parser often removes explicit time expressions before semantic ranking:
 
