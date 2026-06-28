@@ -49,6 +49,35 @@ This means the current B+TF result should be read as the behavior of the public 
 
 That ablation would clarify whether the B+TF gap comes mainly from temporal pruning, query rewriting quality, or their interaction.
 
+### Qualitative Examples from the Recheck Analysis
+
+The auxiliary analysis in `ANALYSIS_BTF_VS_B.md` gives several useful examples for interpreting the B+TF gap. These examples are diagnostic only; they are not a replacement for a dedicated no-rewrite ablation.
+
+**Rewritten-query behavior.** The parser often removes explicit time expressions before semantic ranking:
+
+| Original query | Rewritten query | Removed time expression |
+|----------------|-----------------|-------------------------|
+| `What did Mel and her kids paint in their latest project in July 2023?` | `What did Mel and her kids paint in their latest project` | `in July 2023` |
+| `What painting did Melanie show to Caroline on October 13, 2023?` | `What painting did Melanie show to Caroline` | `on October 13, 2023` |
+| `Where did Caroline move from 4 years ago?` | `Where did Caroline move from` | `4 years ago` |
+
+This is consistent with the public code's design: time information is moved into `time_constraint`, while the rewritten query is used for vector ranking. The potential risk is that some time expressions also help disambiguate the semantic target.
+
+**Cases where B is better.** Some failures look like overly narrow temporal pruning:
+
+| Query | Temporal filter effect | B top-5 | B+TF top-5 | Observation |
+|-------|------------------------|---------|------------|-------------|
+| `What did Mel and her kids paint in their latest project in July 2023?` | POINT filter, pool `67 -> 3` | Hits target `25` | Misses target | The correct block is excluded from the filtered pool. |
+| `Why did Maria sit with the little girl at the shelter event in February 2023?` | POINT filter, pool `86 -> 7` | Hits target `127` | Misses target | The filtered pool is small but loses the relevant block. |
+
+**Cases where B+TF is better.** Other examples show the intended behavior:
+
+| Query | Temporal filter effect | B top-5 | B+TF top-5 | Observation |
+|-------|------------------------|---------|------------|-------------|
+| `What painting did Melanie show to Caroline on October 13, 2023?` | POINT filter, pool `67 -> 4` | Misses target | Hits target `58` | Temporal pruning isolates the relevant time-local blocks. |
+
+Taken together, these examples suggest that the current discrepancy is not simply "time filtering is bad". The mechanism works on some cases, but in this run the negative cases from over-pruning and rewritten-query mismatch outweigh the positive cases.
+
 ## Reproduction Pipeline
 
 The reproduction follows the full LoCoMo QA workflow:
