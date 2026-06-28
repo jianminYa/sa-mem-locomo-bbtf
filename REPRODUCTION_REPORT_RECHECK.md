@@ -10,7 +10,7 @@
 This report documents a partial reproduction of the SA-Mem LoCoMo B/B+TF experiments using the public research code and a local LoCoMo10 dataset. The reproduction focuses on:
 
 - **B**: baseline vector retrieval over MemBlocks.
-- **B+TF**: baseline retrieval with time filtering, query parsing, and temporal candidate pruning.
+- **B+TF**: baseline vector retrieval plus query parsing; the parsed temporal constraints are then used for Time Filtering, i.e., temporal-index candidate pruning before semantic ranking.
 
 The main finding is:
 
@@ -269,7 +269,7 @@ The original target repository is `RichardWang11/SA-Mem-Research`. The upstream 
 | `scripts/retrieve_locomo_b_btf.py` | Thin wrapper to expose retrieval top-k |
 | `scripts/analyze_repro_metrics.py` | Reproducible evidence, QA, and latency analysis |
 | `retrieval/retrieval_impl_locomo.py` patch | Baseline warm-cache and latency fields |
-| `retrieval/retrieval_enhanced_locomo.py` patch | B+TF temporal filtering, warm-cache, query-key fix, and latency fields |
+| `retrieval/retrieval_enhanced_locomo.py` patch | B+TF query parsing, temporal-index candidate pruning, warm-cache, query-key fix, and latency fields |
 | `retrieval/query_pasing_byllm.py` patch | Time-axis parsing and temporal-filter dispatch helpers |
 | `retrieval/retrieve_stage_enhanced_locomo.py` patch | CLI support for axis mode and related options |
 | `generate_impl_locomo.py` patch, if still needed | `LIMIT_CONVERSATIONS=-1` handling |
