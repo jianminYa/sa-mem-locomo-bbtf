@@ -182,74 +182,41 @@ Useful evaluation options:
 - `--eval-output`: custom detailed evaluation output path.
 - `--summary-output`: custom summary output path.
 
-## LoCoMo B/B+TF Reproduction (Partial)
+## LoCoMo B/B+TF Reproduction Notes
 
-This section documents a partial reproduction of SA-Mem's LoCoMo B/B+TF experiments.
+This branch documents a lightweight reproduction of the non-graph LoCoMo B/B+TF path. See:
 
-**Status**: Partial reproduction. B baseline is close to paper numbers, but B+TF temporal filtering gain is NOT reproduced in this run.
+- `docs/locomo_b_btf_reproduction.md`
+- `docs/locomo_b_btf_metrics_summary.md`
+- `docs/locomo_b_btf_metrics_summary.json`
 
-### Key Findings
+### Key Results
 
-| Aspect | Status | Details |
+| Aspect | Result | Details |
 |--------|--------|---------|
-| QA (B) | ✅ Close | F1=0.5133, BLEU=0.3892 (paper: ~0.52, ~0.39) |
-| QA (B+TF) | ❌ Lower | F1=0.4879 (lower than B) |
-| Evidence (B) | ✅ Close | Hit@5=0.8201, Recall@5=0.7580 (paper: 0.8162, 0.7475) |
-| Evidence (B+TF) | ❌ Lower | Hit@5=0.7708, Recall@5=0.7065 (lower than B) |
-| Latency (B warm) | ✅ Close | Search=0.105s |
-| Temporal gain | ❌ Not reproduced | B+TF < B on temporal-constrained queries |
-
-See `REPRODUCTION_REPORT_RECHECK.md` for full details.
+| QA (B) | Close to paper | F1=0.5133, BLEU=0.3892; paper SA-Mem overall is 0.5203/0.3908 |
+| QA (B+TF) | Not reproduced | F1=0.4879, BLEU=0.3692; lower than B |
+| Evidence (B) | Close to paper | Hit@5=0.8201, Recall@5=0.7580; paper Table 5 reference is 0.8162/0.7475 |
+| Evidence (B+TF) | Not reproduced | Hit@5=0.7708, Recall@5=0.7065; lower than B |
+| Latency (B core) | Close to paper | Core search p50=0.102s, p95=0.144s |
+| Latency (B+TF all queries) | Limited full-run gain | Core search p50=0.108s; average candidate pool 93.36 -> 87.33 |
+| Latency (B+TF triggered temporal subset) | Local gain | Category-2 POINT/RANGE subset core p50=0.0085s; pool 96.00 -> 33.65 |
 
 ### Configuration
 
 | Parameter | Value |
 |-----------|-------|
-| Dataset | LoCoMo10 (10 conversations, 1540 non-cat5 QA pairs) |
-| LLM | gpt-4o-mini |
-| Embedding | text-embedding-3-small |
+| Dataset | LoCoMo10, 10 conversations, 1540 non-category-5 QA pairs |
+| LLM | `gpt-4o-mini` |
+| Embedding | `text-embedding-3-small` |
 | Retrieval top-k | 5 |
 | Generation top-n | 5 |
-| Text mode | content |
+| Text mode | `content` |
 | Graph | disabled |
-| axis-mode | auto (bi-temporal inference) |
+| axis-mode | auto |
 
-### Evidence Metrics Definition
+### Notes
 
-- **Complete-MRR**: If all gold memories in top-k, score = M / rank_max, else 0 (paper definition)
-- **First-RR**: Reciprocal rank of first relevant item (supplementary)
-- **Hit@5**: Fraction of queries with ≥1 gold memory in top-5
-- **Recall@5**: Fraction of gold memories found in top-5
+B+TF in the current public code path uses `QueryParser` to produce `rewritten_query`, and enhanced retrieval uses the rewritten-query embedding for semantic ranking. The paper does not provide the exact rewrite prompt or an ablation separating query rewriting from temporal filtering. A useful follow-up is `B+TF-original-query`: keep query parsing and temporal-index candidate pruning, but rank with the original question embedding.
 
-**Note**: Our top-5 is not equivalent to paper's controlled token budget.
-
-### Running the Experiments
-
-```bash
-# Full run (with build)
-RUN_ID=locomo_b_btf_full bash scripts/run_locomo_b_btf.sh
-
-# Skip build (reuse existing memory blocks)
-SKIP_BUILD=1 RUN_ID=locomo_b_btf_full bash scripts/run_locomo_b_btf.sh
-
-# Custom run with axis mode
-python scripts/retrieve_locomo_b_btf.py --top-k 5 --mode both \
-  --run-id locomo_b_btf_full --output-dir out/custom_run \
-  --raw-data-file dataset/locomo10.json \
-  --final-content-file out/locomo_b_btf_full/final_boxes_content.jsonl \
-  --limit-conversations -1 --overwrite --axis-mode auto
-
-# Metrics analysis
-python scripts/analyze_repro_metrics.py out/locomo_b_btf_recheck_20260624
-```
-
-### Output Directories
-
-| Directory | Description |
-|-----------|-------------|
-| `out/locomo_b_btf_full/` | Original run (old retrieval latency) |
-| `out/locomo_b_btf_fix_latency_20260623/` | Fixed fallback + old latency |
-| `out/locomo_b_btf_warm_latency_20260623/` | Warm-cache + bi-temporal |
-| `out/locomo_b_btf_recheck_20260624/` | Corrected query key + evidence metrics |
-
-**Note**: These directories contain large files (vector_store, token_stream, etc.) and should not be submitted to upstream PRs.
+This branch intentionally includes aggregate metrics and reusable scripts, not full raw run artifacts. Raw local outputs were generated under `out/locomo_b_btf_recheck_20260624/` and can be regenerated with the provided scripts.
